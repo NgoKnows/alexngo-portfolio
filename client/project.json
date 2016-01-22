@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Missed Connections for Jerks",
+    "image_url": "../../client/images/mcfj.png",
+    "description": "Was someone a jerk to you?",
+    "name": "mcfj",
+    "tag": "web app"
+  },
+
+  {
+    "title": "Everything Sports",
+    "image_url": "../../client/images/everything-sports.png",
+    "description": "Fantasy Tools for the Saavy Fantasy Sports Player",
+    "name": "everythingSports",
+    "tag": "web app"
+  },
+
+  {
+    "title": "Finding Value in Tips (Yelp Data Analysis)",
+    "image_url": "../../client/images/yelp.jpg",
+    "description": "What kind of value do tips provide to Yelp?",
+    "name": "yelp",
+    "tag": "data science"
+  },
+
+  {
+    "title": "Easy React Calendar",
+    "image_url": "../../client/images/calendar.png",
+    "description": "A simple beautiful calendar made in React",
+    "name": "calendar",
+    "tag": "react component"
+  }
+]
