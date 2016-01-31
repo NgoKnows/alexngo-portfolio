@@ -8,7 +8,7 @@ import myApp from '../universal/redux/reducers/reducer'
 import Root from '../universal/containers/Root'
 import composeStore from '../universal/CreateStore'
 import routes from '../universal/Routes'
-import Wrapper from '../universal/containers/Wrapper'
+import { StyleRoot } from 'radium'
 
 import { Router, match, RouterContext, createRoutes, browserHistory } from 'react-router';
 
@@ -29,13 +29,14 @@ export function *handleRender() {
         } else if (renderProps) {
             const radiumConfig = {userAgent: this.headers['user-agent']};
             const Router = (
-                <Wrapper radiumConfig={radiumConfig}>
+                <StyleRoot radiumConfig={radiumConfig}>
                     <RouterContext {...renderProps} />
-                </Wrapper>
+                </StyleRoot>
             );
             const html = renderToString(
                 <Root store={store} routes={Router} />
             );
+
             this.body = renderFullPage(html, initialState)
 
         } else {
@@ -58,7 +59,7 @@ export function renderFullPage(html, initialState) {
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>
-        <script src="bundle.js"></script>
+        <script src="http://localhost:8000/bundle.js"></script>
       </body>
     </html>
     `

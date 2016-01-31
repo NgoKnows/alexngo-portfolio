@@ -3,6 +3,9 @@ import Radium from 'radium'
 
 import Header from 'components/Header'
 
+import resume from 'client/files/resume.pdf'
+
+
 class About extends Component {
     render() {
         return (
@@ -10,14 +13,19 @@ class About extends Component {
                 <Header text="about"/>
                 <div style={STYLES.about}>
                     Hi, I'm Alex Ngo and I'm currently an Informatics student
-                    at the University of Washington. I really enjoy programming
-                    and am constantly learning, right now I'm learning Node.js,
-                    and React Native.
+                    at the University of Washington. I am currently looking
+                    for a full time software engineering position.
                 </div>
                 <div style={STYLES.linkContainer}>
-                    <div style={STYLES.link}>GitHub</div>
-                    <div style={STYLES.link}>LinkedIn</div>
-                    <div style={STYLES.link}>Resume</div>
+                    <div style={STYLES.link}>
+                        <a href="https://github.com/NgoKnows">Github</a>
+                    </div>
+                    <div style={STYLES.link}>
+                        <a href="https://www.linkedin.com/in/alexhngo">LinkedIn</a>
+                    </div>
+                    <div style={STYLES.link}>
+                        <a href={resume}>Resume</a>
+                    </div>
                 </div>
             </div>
         )
@@ -32,15 +40,16 @@ const STYLES = {
 
     about: {
         fontSize: '2em',
-        margin: '1em 2.5em'
+        margin: '0 3em 2em 3em'
     },
 
     link: {
         border: '1px solid black',
         fontSize: '2em',
         margin: '0 1em',
-        padding: '0.045em 0.2em'
+        padding: '0.1em 0.2em 0.05em 0.2em'
     },
+
     linkContainer: {
         display: 'flex',
         justifyContent: 'center'

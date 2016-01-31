@@ -6,7 +6,6 @@ import composeStore from 'universal/CreateStore'
 
 import Root from 'containers/Root.js'
 import Router from 'universal/Router'
-import Wrapper from 'containers/Wrapper'
 
 import 'stylesheets/main.css'
 

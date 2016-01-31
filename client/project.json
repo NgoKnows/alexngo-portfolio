@@ -4,7 +4,13 @@
     "image_url": "../../client/images/mcfj.png",
     "description": "Was someone a jerk to you?",
     "name": "mcfj",
-    "tag": "web app"
+    "tag": "web app",
+    "color": "#145270",
+    "content": {
+      "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
+      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
+      "execution": [""]
+    }
   },
 
   {
@@ -12,7 +18,13 @@
     "image_url": "../../client/images/everything-sports.png",
     "description": "Fantasy Tools for the Saavy Fantasy Sports Player",
     "name": "everythingSports",
-    "tag": "web app"
+    "tag": "web app",
+    "color": "#1BBC9C",
+    "content": {
+      "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
+      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
+      "execution": [""]
+    }
   },
 
   {
@@ -20,7 +32,13 @@
     "image_url": "../../client/images/yelp.jpg",
     "description": "What kind of value do tips provide to Yelp?",
     "name": "yelp",
-    "tag": "data science"
+    "tag": "data science",
+    "color": "#B22B33",
+    "content": {
+      "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
+      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
+      "execution": [""]
+    }
   },
 
   {
@@ -28,6 +46,26 @@
     "image_url": "../../client/images/calendar.png",
     "description": "A simple beautiful calendar made in React",
     "name": "calendar",
-    "tag": "react component"
+    "tag": "react component",
+    "color": "#1B5E20",
+    "content": {
+      "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
+      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
+      "execution": [""]
+    }
+  },
+
+  {
+    "title": "Portfolio",
+    "image_url": "../../client/images/portfolio.png",
+    "description": "alexngo.io",
+    "name": "portfolio",
+    "tag": "website",
+    "color": "#000000",
+    "content": {
+      "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
+      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
+      "execution": [""]
+    }
   }
 ]

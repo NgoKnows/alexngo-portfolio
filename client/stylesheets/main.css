@@ -14,7 +14,31 @@ html {
 @media (max-width: 500px) {
     html { font-size: 12px; }
 }
+@media (max-width: 400px) {
+    html { font-size: 10px; }
+}
 @media (max-width: 320px) {
     html { font-size: 7px; }
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+span.line_wrap {
+    position:relative;
+    display:inline-block;
+}
+span.line {
+    display:inline-block;
+    position:absolute;
+    left:0;
+    top:50%;
+    width:0;
+    border-top:2px solid black;
+    -webkit-transition: width 0.3s ease-out;
+}
+div span.line_wrap:hover span.line {
+    width:100%;
+}

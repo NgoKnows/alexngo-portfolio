@@ -16,6 +16,7 @@ module.exports = {
             react: path.join(ROOT_DIR, 'node_modules', 'react'),
             components: path.join(ROOT_DIR, 'universal', 'components'),
             containers: path.join(ROOT_DIR, 'universal', 'containers'),
+            client: path.join(ROOT_DIR, 'client'),
             flux: path.join(ROOT_DIR, 'universal', 'redux'),
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             images: path.join(ROOT_DIR, 'client', 'images'),
@@ -27,6 +28,7 @@ module.exports = {
     resolveLoader: { root: path.join(process.env.PWD, "node_modules") },
 
     output: {
+        publicPath: "http://localhost:8000/",
         path: path.join(ROOT_DIR,'build'),
         filename: 'bundle.js'
     },
@@ -58,7 +60,7 @@ module.exports = {
             },
 
             {
-                test: /\.(jpg|png|woff|woff2|eot|ttf|svg|otf)$/,
+                test: /\.(pdf|jpg|png|woff|woff2|eot|ttf|svg|otf)$/,
                 loader: 'url-loader?limit=10000'
             },
 

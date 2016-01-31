@@ -6,15 +6,25 @@ class Header extends Component {
         const { text } = this.props;
 
         return (
-            <div style={STYLES}>{text}</div>
+            <h2 style={STYLES}>{text}</h2>
         )
     }
 }
 
+Header.propTypes = {
+    text : PropTypes.string,
+}
+
+Header.defaultProps = {
+    text: "Header"
+}
+
 const STYLES = {
     fontSize: '2.5em',
-    letterSpacing: '5px',
-    textDecoration: 'line-through'
+    fontWeight: 'normal',
+    letterSpacing: '15px',
+    //textDecoration: 'line-through',
+    marginBottom: '1em'
 }
 
 export default Radium(Header);

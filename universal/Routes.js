@@ -3,11 +3,19 @@ import React, { Component, PropTypes } from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from './containers/App'
-import Sample from './components/Sample'
+import TitlePage from './components/Title/TitlePage'
+import ProjectsPage from './components/Projects/ProjectsPage'
 
 export default (
     <Route path='/' component={App}>
-        <IndexRoute component={Sample} />
+        <IndexRoute component={TitlePage} />
+        <Route path="projects" component={ProjectsPage}>
+            <Route path="mcfj" />
+            <Route path="everythingSports" />
+            <Route path="yelp" />
+            <Route path="calendar" />
+            <Route path="portfolio" />
+        </Route>
     </Route>
     );
 

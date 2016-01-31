@@ -24,6 +24,7 @@ module.exports = {
         alias : {
             react: path.join(__dirname, 'node_modules', 'react'),
             classes: path.join(ROOT_DIR, 'client', 'js', 'classes'),
+            client: path.join(ROOT_DIR, 'client'),
             components: path.join(ROOT_DIR, 'universal', 'components'),
             containers: path.join(ROOT_DIR, 'universal', 'containers'),
             flux: path.join(ROOT_DIR, 'universal', 'redux'),
@@ -63,7 +64,7 @@ module.exports = {
             },
 
             {
-                test: /\.(jpg|png|woff|woff2|eot|ttf|svg|otf)$/,
+                test: /\.(pdf|jpg|png|woff|woff2|eot|ttf|svg|otf)$/,
                 loader: 'url-loader?limit=10000'
             },
 

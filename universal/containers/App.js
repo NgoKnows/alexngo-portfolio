@@ -4,32 +4,27 @@ import Radium from 'radium'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as actions from '../redux/actions/actions'
+import { VelocityTransitionGroup } from 'velocity-react'
 
-import Title from '../components/Title'
-import Projects from '../components/Projects'
-import About from '../components/About'
+import * as actions from '../redux/actions/actions'
 
 class App extends Component {
     render() {
-        const { actions, ...other } = this.props;
+        const { actions, routing, ...other } = this.props;
 
         return (
             <div style={STYLES}>
-                <Title />
-                <Projects />
-                <About />
-                {this.props.children}
+                    {React.cloneElement(this.props.children, {
+                        key: routing.location.pathname
+                    })}
             </div>
         );
     }
 }
 
-App.propTypes = {}
-
 function mapStateToProps(state) {
     return {
-        blah : state.get('blah')
+        routing: state.get('routing')
     };
 }
 
@@ -40,7 +35,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const STYLES = {
-    fontFamily : "'Simplifica', 'sans-serif'"
+    fontFamily : "'Simplifica', 'sans-serif'",
 }
 
 export default Radium(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -5,13 +5,13 @@ class Project extends Component {
     render() {
         return (
             <div style={STYLES.container}>
-
+                wtf
             </div>
         )
     }
 }
 
-Project.PropTypes = {
+Project.propTypes = {
     changeText : PropTypes.func.isRequired,
     text       : PropTypes.string.isRequired,
     readOnly   : PropTypes.bool

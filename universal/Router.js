@@ -3,17 +3,18 @@ import React, { Component, PropTypes } from 'react'
 import { Router, browserHistory } from 'react-router'
 
 import App from './containers/App'
-import Wrapper from './containers/Wrapper'
+import { StyleRoot } from 'radium'
 import Routes from './Routes'
 
 export default class MyRouter extends Component {
     render() {
+
         return (
-            <Wrapper>
+            <StyleRoot radiumConfig={{userAgent: navigator.userAgent}}>
                 <Router history={browserHistory}>
                     {Routes}
                 </Router>
-            </Wrapper>
+            </StyleRoot>
         )
     }
 }
