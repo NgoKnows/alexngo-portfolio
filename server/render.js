@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 
 import myApp from '../universal/redux/reducers/reducer'
-import Error from '../universal/components/Error/Error'
+import Error from '../universal/components/ErrorPage/ErrorPage'
 import Root from '../universal/containers/Root'
 import composeStore from '../universal/CreateStore'
 import routes from '../universal/Routes'
