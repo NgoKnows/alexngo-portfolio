@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
 
-import Tag from 'components/title/tag'
+import Tag from 'components/Title/Tag'
 
 import mcfj from 'images/mcfj.png'
 import everythingSports from 'images/everything-sports.png'
