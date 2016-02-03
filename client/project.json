@@ -6,10 +6,21 @@
     "name": "mcfj",
     "tag": "web app",
     "color": "#145270",
+    "links": {
+      "website": "",
+      "github": "https://github.com/NgoKnows/Missed-Connections-For-Jerks",
+      "npm": ""
+    },
     "content": {
       "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
-      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
-      "execution": [""]
+      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis", "Webpack"],
+      "execution": [
+        ["Server", "I used Node.js as the backend, and used Koa as the web framework of choice. The reason I chose Koa was because I felt that using generators was a cleaner and more expressive way of handling asynchronous code. It was definitely a challenge at first, getting used to and learning how to use generators, but it made the server-side code very easy to reason about, especially being able to yield to promises and other generators. Something else I appreciate about Koa is that it is a modular framework, allowing you to add features as needed, and avoiding unneeded bloat.\nWriting the REST API was made really easy thanks to the use of Koa. Some new skills I learned were using Redis to cache API responses because the API I was using to implement autocomplete was rate limited, I turned to Redis as a caching solution."],
+        ["Realtime", "In addition to this, I used RethinkDB as the data persistence layer, which was a really good choice, both because its query language is very expressive, but also because they implement a feature called change feeds, which allow you to listen to changes on a table, document, or even a query. This makes realtime functionality very easy, so for example you can listen to changes on a table of events, and update your page each time a new event is added."],
+        ["React/Redux", "To control dataflow in the application I used Redux, which is an implementation of Facebook’s flux architecture. It is heavily influenced by functional programming and revolves around having one state tree for you application, and anytime you want to change the state you dispatch “actions” which are interpreted by a “reducer” which determines how your state is changed.\nSo for example in my application, whenever anything happened such as the user moving around the map to explore events or a new event appearing on the map, an action would dispatch and that would update the state, which is then passed to the root of the application. From here the state would flow down to children components and React figures out what needs to be updated, thus updating the view."],
+        ["Developer Experience", "For this project I used a lot of technologies that are considered cutting edge, but not because they are so, but rather because I wanted to try out technologies which give the best developer experience. With Koa as I said before uses generators, which I found makes server-side code easy to both write and reason about compared to callbacks and/or promises alone.\nIn addition to this, Redux makes state management so much easier than other solutions I have found. First, Redux touts itself as a “Predictable State Container for JavaScript apps”, this is because it allows you to be able to manage the state in a manner which you know the sequence of actions that occurred to get to this state. The ecosystem built around Redux is growing quickly, and provides DevTools in which you can see actions as they are being dispatched and even do time-travel, where you can reverse actions that have been dispatched as well as redoing them.\nFinally, something else I very much enjoyed using was Hot Module Reloading which is possible to do with React and Webpack. Essentially whenever you make a change to a component, you can see the change immediately without a refresh, and state remains exactly the same. This is the most amazing part about it, not only do you not have to refresh, but your state remains unchanged, and this means that when you are debugging something that requires you to step through many state changes, it can be cumbersome to have to go through all these steps each time you make a change and have to refresh."],
+        ["Final Thoughts", "Overall this project has been really fun to work on, and I’ve used it as a way to learn things that I’ve always wanted to learn. It may not be the most practical app, but I think I’ve learned so much in regards to full stack development, and a variety of technologies. I plan on learning so much more, and this is only the beginning."]
+      ]
     }
   },
 
@@ -20,10 +31,18 @@
     "name": "everythingSports",
     "tag": "web app",
     "color": "#1BBC9C",
+    "links": {
+      "website": "",
+      "github": "https://github.com/NgoKnows/Everything-Sports",
+      "npm": ""
+    },
     "content": {
-      "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
-      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
-      "execution": [""]
+      "idea": "A application that provides users tools to help their fantasy basketball team. Including features such as visual comparisons of players, and more easily sortable view of their teams",
+      "stack": ["AngularJS", "JavaScript", "Python", "D3.js"],
+      "execution": [
+        ["Data Scraping", "I knew that to implement the features that I wanted to, I would need to get NBA statistics, and at the time there were no free ways of obtaining such information. So I had to scrape the data, and so I implemented a data crawler/scraper in Python. I utilized the BeautifulSoup library to do so, and figured out the general outline of what I would need to do. First I had to access the page which contained all active players of a particular letter, traverse over each letter, and then follow the links leading to each player. Then I analyzed the structure of the page of a player’s statistics and then was able to extract any relevant statistics. I stored all of this data in a dictionary, and I then wrote that dictionary to a JSON file."],
+        ["My First Foray into Web Apps", "This was my first attempt at making a web application, and is what started my journey into web development."]
+      ]
     }
   },
 
@@ -34,10 +53,17 @@
     "name": "yelp",
     "tag": "data science",
     "color": "#B22B33",
+    "links": {
+      "website": "http://104.236.104.237:8000/",
+      "github": "",
+      "npm": ""
+    },
     "content": {
       "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
-      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
-      "execution": [""]
+      "stack": ["Python", "R", "JavaScript"],
+      "execution": [
+        ["Background", "This project was done as group as part of an assignment for INFO 474 (Intro to Data Science). Check out 'method' section of website for detailed information."]
+      ]
     }
   },
 
@@ -48,10 +74,18 @@
     "name": "calendar",
     "tag": "react component",
     "color": "#1B5E20",
+    "links": {
+      "website": "",
+      "github": "https://github.com/NgoKnows/easy-react-calendar",
+      "npm": "https://www.npmjs.com/package/easy-react-calendar"
+    },
     "content": {
       "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
-      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
-      "execution": [""]
+      "stack": ["React", "Webpack", "NPM"],
+      "execution": [
+        ["Inspiration", "I was working on Missed Connections for Jerks, and I found that I needed a DatePicker component. Rather than use a pre-made component I decided to build my own, and I had always been interested in how DatePickers were implemented. Most of all, I just wanted to see if I could do it, because it seemed fairly complicated."],
+        ["NPM", "Another aspect of this project was uploading my component as an NPM package so that other people can use it. I had to do learn about how uploading NPM packages worked in general, and while that was fairly straightforward, I ran into a few problems with other aspects. The first problem I had was understanding how to include fonts, and images because while I was developing, these were being provided through a CDN and served up through a server respectively. So I eventually figured out that I would need to bundle them with Webpack.\nMy other problem was how to have this code work, when it required transpiration  and not everyone who is going to be using it will be using Babel to transpile. So I came to the solution that I would need to do the transpilation and bundling before uploading to NPM, and this was through running Webpack in the prepublish step which is run before you upload to NPM.\nThere is a link to the npm package above if you want to check it out."]
+      ]
     }
   },
 
@@ -62,10 +96,18 @@
     "name": "portfolio",
     "tag": "website",
     "color": "#000000",
+    "links": {
+      "website": "",
+      "github": "https://github.com/NgoKnows/my-portfolio",
+      "npm": ""
+    },
     "content": {
       "idea": "A place where people who have negative experiences with others in life, can go to and vent about their experiences",
-      "stack": ["Node.js", "Koa", "React.js", "Redux", "Socket.io", "RethinkDB", "Redis"],
-      "execution": [""]
+      "stack": ["Node.js", "Koa", "React.js", "Redux"],
+      "execution": [
+        ["Server-Side Rendering", "Besides creating a new place to show my works, I used this as an opportunity to learn how to do server-side rendering with React.\nUp to this point I’ve heard all the benefits of server-side rendering, such as load times and allowing web crawlers to index your webpage, to name a few. So I wanted to see how easy (or hard) it would be to do so in React.\nFirst thing I did was try the most simple webpage I could, and that was a plain html page with just a div that said “Hello World!”. It worked and the concept seemed simple enough, you use React.toString(), and it returns the plain html (with react-id’s) of the components which you pass it, you send that html to the client and then once the JavaScript loads, React hooks into your html using the aforementioned react-id’s, and then it’s business as usual!"],
+        ["Adding More Complexity", "The problems that I ran into came as I started adding more complexity. The first being the styling library I use, which is Radium, a CSS in JS solution. The problem being that the way Radium works is that it applies prefixes based on the user-agent, which is available on the client, but not on the server. Same problem with media-queries, which uses the window measurement on the client, but no such equivalent on the server. The solution being a config that Radium accepts as a prop, which you can pass the user-agent and window size which can be obtained by the request made to the server.\nAnother was React Router, but that was fairly simple, essentially using RouterContext rather than Router on the server-side. There was a bug I ran into with Radium interacting with ReactRouter, which surprisingly turned out to be a bug in React, with the fix hopefully being merged in the next release.\nFinally, the last piece pertaining to server-side rendering, was Redux. The basic way in which this is handled is you compose a store, you can dispatch some actions to change the state, and then you grab the state from the store. From there you take the state and convert it to JSON using JSON.stringify so it is serializable and you can attach it to the html you send in the response. Then on the client side, once the JavaScript loads, Redux grabs the state from the html and everything continues as normal."]
+      ]
     }
   }
 ]

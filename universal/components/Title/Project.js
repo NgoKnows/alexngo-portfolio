@@ -35,12 +35,11 @@ class Project extends Component {
 
     render() {
         const { hovering } = this.state;
-        const { name, flipped, title, description, tag, index, last, handleClick } = this.props;
+        const { name, flipped, title, description, tag, index, last } = this.props;
 
         return (
             <div onMouseEnter={this.handleHover}
                  onMouseLeave={this.handleHover}
-                 onClick={handleClick}
                  style={[STYLES.container.main,
                  flipped ? STYLES.container.flipped : {},
                  hovering ? STYLES.container.hovering : {},
@@ -64,7 +63,7 @@ class Project extends Component {
                         <Tag text={tag} />
                     </div>
                     <div style={STYLES.title}>
-                        {index} // {title}
+                        <span style={STYLES.number}>0{index}</span> // {title}
                     </div>
                     <div style={STYLES.description.text}>
                         {description}
@@ -185,6 +184,10 @@ const STYLES = {
     title: {
         fontSize: '2.5em',
         marginBottom: '0.2em'
+    },
+
+    number: {
+        color: '#BBBBBB'
     }
 }
 

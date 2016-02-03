@@ -8,6 +8,7 @@ import * as actions from 'universal/redux/actions/actions'
 
 import SideNav from './SideNav'
 import ProjectContent from './ProjectContent'
+import ProjectList from './ProjectList'
 
 import { VelocityTransitionGroup } from 'velocity-react'
 
@@ -16,14 +17,15 @@ class ProjectsPage extends Component {
     render() {
         const { actions, routing } = this.props;
         const currentProject = routing.location.pathname.split('/')[2];
-
+        console.log(routing.location.pathname);
+        console.log(currentProject)
         return (
             <div style={STYLES.container}>
                 <SideNav actions={actions}
                          currentProject={routing.location.pathname.split('/')[2]}/>
                 <div style={STYLES.project}>
                     <VelocityTransitionGroup component="div" enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
-                        {currentProject ? <ProjectContent key={currentProject} projectName={currentProject}/> : null}
+                        {currentProject ? <ProjectContent key={currentProject} projectName={currentProject}/> : <ProjectList />}
                     </VelocityTransitionGroup>
                 </div>
             </div>
@@ -41,7 +43,8 @@ const STYLES = {
     },
 
     project: {
-        margin: '2.5rem 1rem'
+        margin: '1.5rem 1rem 0 1rem',
+        width: '100%',
     }
 }
 

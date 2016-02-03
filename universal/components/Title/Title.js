@@ -39,7 +39,7 @@ const STYLES = {
 
     arrow: {
         position: 'absolute',
-        height: '3rem',
+        height: '3.5rem',
         top: 'calc(95vh - 3rem)',
         left: '50%'
     }

@@ -11,7 +11,7 @@ export default class MyRouter extends Component {
 
         return (
             <StyleRoot radiumConfig={{userAgent: navigator.userAgent}}>
-                <Router history={browserHistory}>
+                <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
                     {Routes}
                 </Router>
             </StyleRoot>

@@ -5,6 +5,7 @@ import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 import TitlePage from './components/Title/TitlePage'
 import ProjectsPage from './components/Projects/ProjectsPage'
+import Error from './components/Error/Error'
 
 export default (
     <Route path='/' component={App}>
@@ -16,6 +17,7 @@ export default (
             <Route path="calendar" />
             <Route path="portfolio" />
         </Route>
+        <Route path="*" component={Error} />
     </Route>
     );
 

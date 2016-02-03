@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
 
+import { Link } from 'react-router'
 import Project from './Project'
 import Header from './../Header'
 
@@ -12,7 +13,9 @@ class Projects extends Component {
 
         return (
             <div style={STYLES.container}>
-                <Header text="projects"/>
+                <Link to="/projects">
+                    <Header text="projects" />
+                </Link>
                 <div style={STYLES.projectsContainer}>
                     {this.renderProjects()}
                 </div>
@@ -26,17 +29,20 @@ class Projects extends Component {
 
         return projectsJSON.map((project, index) => {
             flipped = !flipped;
-            return <Project title={project.title}
-                            description={project.description}
-                            image_url={project.image_url}
-                            name={project.name}
-                            tag={project.tag}
-                            flipped={flipped}
-                            index={index}
-                            key={project.title}
-                            handleClick={() => actions.push(`/projects/${project.name}`)}
-                            last={index === projectsJSON.length - 1}
-            />
+            return (
+                <Link to={`/projects/${project.name}`}>
+                    <Project title={project.title}
+                             description={project.description}
+                             image_url={project.image_url}
+                             name={project.name}
+                             tag={project.tag}
+                             flipped={flipped}
+                             index={index}
+                             key={project.title}
+                             last={index === projectsJSON.length - 1}
+                    />
+                </Link>
+            )
         })
     }
 }

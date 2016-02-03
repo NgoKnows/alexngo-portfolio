@@ -37,7 +37,7 @@ span.line {
     top:50%;
     width:0;
     border-top:2px solid black;
-    -webkit-transition: width 0.3s ease-out;
+    -webkit-transition: width 0.25s ease-out;
 }
 div span.line_wrap:hover span.line {
     width:100%;

@@ -44,7 +44,7 @@ const STYLES = {
     },
 
     link: {
-        border: '1px solid black',
+        textDecoration: 'underline',
         fontSize: '2em',
         margin: '0 1em',
         padding: '0.1em 0.2em 0.05em 0.2em'

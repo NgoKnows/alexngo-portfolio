@@ -5,12 +5,13 @@ import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 
 import myApp from '../universal/redux/reducers/reducer'
+import Error from '../universal/components/Error/Error'
 import Root from '../universal/containers/Root'
 import composeStore from '../universal/CreateStore'
 import routes from '../universal/Routes'
 import { StyleRoot } from 'radium'
 
-import { Router, match, RouterContext, createRoutes, browserHistory } from 'react-router';
+import { Router, match, RouterContext, createRoutes } from 'react-router';
 
 export function *handleRender() {
     // Create a new Redux store instance
@@ -40,7 +41,9 @@ export function *handleRender() {
             this.body = renderFullPage(html, initialState)
 
         } else {
-            this.body = "Not Found"
+            this.body = renderToString(
+                <Error />
+            );
         }
     })
 };

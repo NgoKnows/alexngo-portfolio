@@ -1,20 +1,32 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
+import { Link } from 'react-router'
 
 import projectJSON from 'client/project.json'
 
 class SideNav extends Component {
     render() {
-        const { actions } = this.props;
+        const { currentProject } = this.props;
 
         return (
             <div style={STYLES.container}>
-                <div style={STYLES.backArrow}
-                     onClick={() => actions.replace('/')}
-                >
-                    &#8592;
-                </div>
+                <Link to="/">
+                    <div style={STYLES.backArrow}>
+                        &#8592;
+                    </div>
+                </Link>
+
                 <div style={STYLES.numberContainer}>
+                    <Link to="projects">
+                        <div style={STYLES.number}>
+                            <span className="line_wrap">
+                                <span className="line"></span>
+                                <div style={!currentProject ? STYLES.selected : {}}>
+                                    <span style={STYLES.all}>all</span>
+                                </div>
+                            </span>
+                        </div>
+                    </Link>
                     {this.renderMenuNumbers()}
                 </div>
             </div>
@@ -22,20 +34,21 @@ class SideNav extends Component {
     }
 
     renderMenuNumbers() {
-        const { actions, currentProject } = this.props;
+        const { currentProject } = this.props;
         return projectJSON.map((project, index) => {
             return (
-                <div style={STYLES.number}
-                     onClick={() => actions.replace(`/projects/${project.name}`)}
-                     key={project.name}
-                >
-                    <span className="line_wrap">
-                        <span className="line"></span>
-                        <div style={currentProject === project.name ? STYLES.selected : {}}>
-                            {`0${index}`}
-                        </div>
-                    </span>
-                </div>
+                <Link to={`/projects/${project.name}`}>
+                    <div style={STYLES.number}
+                         key={project.name}
+                    >
+                        <span className="line_wrap">
+                            <span className="line"></span>
+                            <div style={currentProject === project.name ? STYLES.selected : {}}>
+                                {`0${index}`}
+                            </div>
+                        </span>
+                    </div>
+                </Link>
             )
         });
     }
@@ -53,7 +66,7 @@ const STYLES = {
     },
 
     numberContainer: {
-        fontSize: '22px',
+        fontSize: '23px',
         display: 'flex',
         width: '3.25rem',
         flexDirection: 'column',
@@ -65,8 +78,9 @@ const STYLES = {
         },
     },
     number: {
-        padding: '0.25em 0 0.25em 0.25em',
-        cursor: 'pointer'
+        padding: '0.3em 0 0.3em 0.3em',
+        cursor: 'pointer',
+        //letterSpacing: '1.25px'
     },
 
     selected: {
@@ -77,6 +91,9 @@ const STYLES = {
         marginBottom: '1em',
         cursor: 'pointer'
     },
+    all: {
+        letterSpacing: '1.5px'
+    }
 }
 
 export default Radium(SideNav);
