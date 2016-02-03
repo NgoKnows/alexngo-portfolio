@@ -90,11 +90,11 @@ httpServer.listen(port, () => {
 });
 
 
-// Live Updating
-// --------------------------------------------------
-import * as eventService from './server/api/service/events'
-import SocketIO from 'socket.io'
-
-let io = SocketIO(httpServer)
-
-eventService.liveUpdates(io);
+//// Live Updating
+//// --------------------------------------------------
+//import * as eventService from './server/api/service/events'
+//import SocketIO from 'socket.io'
+//
+//let io = SocketIO(httpServer)
+//
+//eventService.liveUpdates(io);
