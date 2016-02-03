@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import Immutable from 'immutable'
 
 import { browserHistory, createMemoryHistory } from 'react-router'
-import { syncHistory, routeReducer } from 'redux-simple-router'
+import { syncHistory, routeReducer } from 'react-router-redux'
 
 import DevTools from './containers/DevTools'
 import Reducer from './redux/reducers/reducer'

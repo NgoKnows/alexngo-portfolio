@@ -1,5 +1,5 @@
 import { ADD_TODO } from '../constants/constants'
-import { routeActions } from 'redux-simple-router'
+import { routeActions } from 'react-router-redux'
 
 import Immutable from 'immutable'
 
