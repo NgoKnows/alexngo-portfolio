@@ -62,7 +62,7 @@ export function renderFullPage(html, initialState) {
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>
-        <script src="http://localhost:8000/bundle.js"></script>
+        <script src="./bundle.js"></script>
       </body>
     </html>
     `
