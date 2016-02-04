@@ -20,12 +20,10 @@ module.exports = {
             flux: path.join(ROOT_DIR, 'universal', 'redux'),
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             images: path.join(ROOT_DIR, 'client', 'images'),
-            universal: path.join(ROOT_DIR, 'universal')
+            universal: path.join(ROOT_DIR, 'universal'),
+            server: path.join(ROOT_DIR, 'server')
         },
-        extensions: ["", ".json", ".js"]
     },
-
-    resolveLoader: { root: path.join(process.env.PWD, "node_modules") },
 
     output: {
         publicPath: "http://localhost:8000/",
@@ -34,6 +32,7 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
@@ -60,7 +59,7 @@ module.exports = {
             },
 
             {
-                test: /\.(pdf|jpg|png|woff|woff2|eot|ttf|svg|otf)$/,
+                test: /\.(jpg|png|woff|woff2|eot|ttf|svg|otf|pdf)$/,
                 loader: 'url-loader?limit=10000'
             },
 

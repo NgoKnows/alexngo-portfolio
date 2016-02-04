@@ -12,7 +12,7 @@ import Reducer from './redux/reducers/reducer'
 import { isClient, isDevelopment } from './utils.js'
 
 export default function composeStore(url) {
-
+    console.log('here')
     //always use thunk middleware
     let middleware = [applyMiddleware(thunk)];
 
@@ -41,7 +41,7 @@ export default function composeStore(url) {
     }
 
     //allow replay of routing
-    reduxRouterMiddleware.listenForReplays(store, (state) => state.get('routing'));
+    reduxRouterMiddleware.listenForReplays(store, (state) => state.get('routing').location);
 
     return store;
 }

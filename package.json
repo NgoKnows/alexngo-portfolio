@@ -5,10 +5,10 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "npm run clean && npm run build:webpack",
-    "start": "NODE_ENV=development webpack --config webpack.config.server.js && node build/server.bundle.js",
+    "start": "webpack --config webpack.config.server.js && NODE_ENV=development node build/server.bundle.js",
     "nodemon": "NODE_ENV=development nodemon server.babel.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "NODE_ENV=production node server.babel.js",
+    "serve": "webpack --config webpack.config.server && NODE_ENV=production node build/server.bundle.js",
     "lint": "eslint client"
   },
   "repository": {

@@ -30,7 +30,9 @@ module.exports = {
             flux: path.join(ROOT_DIR, 'universal', 'redux'),
             js: path.join(ROOT_DIR, 'client', 'js'),
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
-            universal: path.join(ROOT_DIR, 'universal')
+            universal: path.join(ROOT_DIR, 'universal'),
+            server: path.join(ROOT_DIR, 'server')
+
         },
         modulesDirectories: [
             "client",
@@ -39,7 +41,6 @@ module.exports = {
             "node_modules",
         ]
     },
-    resolveLoader: { root: path.join(__dirname, "node_modules") },
 
     output: {
         path: path.join(ROOT_DIR,'build'),
@@ -74,9 +75,5 @@ module.exports = {
             }
         ]
     },
-    externals: nodeModules,
-    node:    {
-        __dirname: true,
-        fs:        'empty'
-    }
+    externals: nodeModules
 };
