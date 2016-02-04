@@ -16,16 +16,18 @@ class About extends Component {
                     at the University of Washington. I am currently looking
                     for a full time software engineering position.
                 </div>
-                <div style={STYLES.linkContainer}>
-                    <div style={STYLES.link}>
-                        <a href="https://github.com/NgoKnows">Github</a>
-                    </div>
-                    <div style={STYLES.link}>
-                        <a href="https://www.linkedin.com/in/alexhngo">LinkedIn</a>
-                    </div>
-                    <div style={STYLES.link}>
-                        <a href={resume}>Resume</a>
-                    </div>
+                <div style={STYLES.link.container}>
+                        <a style={STYLES.link.main}
+                           href="https://github.com/NgoKnows">
+                            Github
+                        </a>
+                        <a style={STYLES.link.main}
+                           href="https://www.linkedin.com/in/alexhngo">LinkedIn
+                        </a>
+                        <a style={STYLES.link.main}
+                           href={resume}>
+                            Resume
+                        </a>
                 </div>
             </div>
         )
@@ -44,15 +46,16 @@ const STYLES = {
     },
 
     link: {
-        textDecoration: 'underline',
-        fontSize: '2em',
-        margin: '0 1em',
-        padding: '0.1em 0.2em 0.05em 0.2em'
-    },
-
-    linkContainer: {
-        display: 'flex',
-        justifyContent: 'center'
+        container: {
+            display: 'flex',
+            justifyContent: 'center'
+        },
+        main: {
+            fontSize: '2em',
+            margin: '0 1em',
+            padding: '0.1em 0.2em 0.05em 0.2em',
+            textDecoration: 'underline'
+        }
     }
 }
 

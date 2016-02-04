@@ -4,8 +4,6 @@ import Radium from 'radium'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { VelocityTransitionGroup } from 'velocity-react'
-
 import * as actions from '../redux/actions/actions'
 
 class App extends Component {

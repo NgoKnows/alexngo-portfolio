@@ -6,7 +6,9 @@ class Header extends Component {
         const { text, handleClick } = this.props;
 
         return (
-            <h2 onClick={handleClick} style={STYLES}>{text}</h2>
+            <h2 onClick={handleClick} style={STYLES}>
+                {text}
+            </h2>
         )
     }
 }
@@ -22,13 +24,13 @@ Header.defaultProps = {
 }
 
 const STYLES = {
+    cursor: 'pointer',
     fontSize: '2.5em',
     fontWeight: 'normal',
-    textDecoration: 'underline',
     letterSpacing: '5px',
-    transition: 'letter-spacing 0.12s ease-out',
     marginBottom: '1em',
-    cursor: 'pointer',
+    textDecoration: 'underline',
+    transition: 'letter-spacing 0.12s ease-out',
     ':hover': {
         letterSpacing: '10px'
     }

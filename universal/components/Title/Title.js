@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import Radium, { Style } from 'radium'
+import Radium from 'radium'
 
+import CrossedOut from 'components/CrossedOut'
 import downArrow from 'images/down-arrow.svg'
 
 class Title extends Component {
@@ -9,10 +10,9 @@ class Title extends Component {
             <div>
                 <div style={STYLES.container}>
                     <h1 style={STYLES.text}>
-                        <span className="line_wrap">
-                            <span className="line"></span>
+                        <CrossedOut>
                             Alex Ngo // Full Stack Engineer // UI Nerd
-                        </span>
+                        </CrossedOut>
                     </h1>
                 </div>
                 <img style={STYLES.arrow} src={downArrow} />
@@ -23,12 +23,12 @@ class Title extends Component {
 
 const STYLES = {
     container: {
+        alignItems: 'center',
         display: 'flex',
+        flexDirection: 'column',
         fontSize: '1rem',
         height: '100vh',
         justifyContent: 'space-around',
-        alignItems: 'center',
-        flexDirection: 'column'
     },
 
     text: {
@@ -38,11 +38,11 @@ const STYLES = {
     },
 
     arrow: {
-        position: 'absolute',
         height: '3.5rem',
-        top: 'calc(95vh - 3rem)',
-        left: '50%'
+        left: '50%',
+        position: 'absolute',
+        top: 'calc(95vh - 3rem)'
     }
-}
+};
 
 export default Radium(Title);

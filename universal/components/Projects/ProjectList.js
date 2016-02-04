@@ -3,7 +3,8 @@ import Radium from 'radium'
 
 import projectJSON from 'client/project.json'
 
-import Header from './../Header'
+import Header from 'components/Header'
+import ProjectLink from './ProjectLink'
 
 class ProjectList extends Component {
     render() {
@@ -13,49 +14,33 @@ class ProjectList extends Component {
                     <div style={STYLES.header.container}>
                         <h2 style={STYLES.header.main}>My Projects</h2>
                     </div>
-                    {
-                        projectJSON.map((project, index) => {
-                            return (
-                                <div key={index} style={STYLES.item.container}>
-                                    <div style={STYLES.item.main}>
-                                        <span style={STYLES.number}>0{index}</span> // {project.title}
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
+                    {this.renderLinks()}
                 </div>
                 <div style={STYLES.section}>
                     <div style={STYLES.header.container}>
                         <h2 style={STYLES.header.main}>Concepts I've Covered</h2>
                     </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Server-side rendering w/ React</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Writing a server in Node and Koa</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Implementing Realtime w/ RethinkDB</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Developer Experience</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Writing an App with React and Redux</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Data Scraping</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Uploading a React Component to NPM</div>
-                    </div>
-                    <div style={STYLES.item.container}>
-                        <div style={STYLES.item.main}>Data Science</div>
-                    </div>
+                    <ProjectLink text={'Server-side rendering w/ React'} path="/projects/mcfj"/>
+                    <ProjectLink text={'Writing a server in Node and Koa'} path="/projects/mcfj"/>
+                    <ProjectLink text={'Implementing Realtime w/ RethinkDB'} path="/projects/mcfj"/>
+                    <ProjectLink text={'Developer Experience'} path="/projects/mcfj"/>
+                    <ProjectLink text={'Writing an App with React and Redux'} path="/projects/mcfj"/>
+                    <ProjectLink text={'Data Scraping'} path="/projects/everythingSports"/>
+                    <ProjectLink text={'Uploading a React Component to NPM'} path="/projects/calendar"/>
+                    <ProjectLink text={'Data Science'} path="/projects/yelp"/>
                 </div>
             </div>
         )
+    }
+
+    renderLinks() {
+        return projectJSON.map((project, index) => {
+            return (
+                <ProjectLink key={project.title} path={`/projects/${project.name}`}>
+                        <span style={STYLES.number}>0{index}</span> // {project.title}
+                </ProjectLink>
+            )
+        })
     }
 }
 
@@ -85,17 +70,6 @@ const STYLES = {
         container: {
             display: 'flex',
             justifyContent: 'center'
-        }
-    },
-    item: {
-        main: {
-            textDecoration: 'underline',
-            cursor: 'pointer'
-        },
-        container: {
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: '0.55em'
         }
     },
 

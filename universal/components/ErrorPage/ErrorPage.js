@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
 
-class Project extends Component {
+class ErrorPage extends Component {
     render() {
         return (
             <div style={STYLES.container}>
@@ -12,21 +12,10 @@ class Project extends Component {
     }
 }
 
-Project.propTypes = {
-    changeText : PropTypes.func.isRequired,
-    text       : PropTypes.string.isRequired,
-    readOnly   : PropTypes.bool
-}
-
-Project.defaultProps = {
-    readOnly: false,
-    changeText: () => {}
-}
-
 const STYLES = {
     container: {
         fontFamily : "'Simplifica', 'sans-serif'",
     }
 }
 
-export default Radium(Project);
+export default Radium(ErrorPage);

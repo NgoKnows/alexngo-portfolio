@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -10,32 +9,27 @@ import SideNav from './SideNav'
 import ProjectContent from './ProjectContent'
 import ProjectList from './ProjectList'
 
-import { VelocityTransitionGroup } from 'velocity-react'
-
-
 class ProjectsPage extends Component {
     render() {
         const { actions, routing } = this.props;
         const currentProject = routing.location.pathname.split('/')[2];
         console.log(routing.location.pathname);
-        console.log(currentProject)
+
         return (
             <div style={STYLES.container}>
                 <SideNav actions={actions}
-                         currentProject={routing.location.pathname.split('/')[2]}/>
+                         currentProject={routing.location.pathname.split('/')[2]}
+                />
                 <div style={STYLES.project}>
-                    <VelocityTransitionGroup component="div" enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
-                        {currentProject ? <ProjectContent key={currentProject} projectName={currentProject}/> : <ProjectList />}
-                    </VelocityTransitionGroup>
+                    {currentProject ?
+                        <ProjectContent key={currentProject} projectName={currentProject}/> :
+                        <ProjectList />
+                    }
                 </div>
             </div>
         )
     }
 }
-
-ProjectsPage.propTypes = {}
-
-ProjectsPage.defaultProps = {}
 
 const STYLES = {
     container: {

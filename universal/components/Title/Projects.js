@@ -1,16 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
-
 import { Link } from 'react-router'
-import Project from './Project'
-import Header from './../Header'
+
+import Project from 'components/Title/Project'
+import Header from 'components/Header'
 
 import projectsJSON from '../../../client/project.json'
 
 class Projects extends Component {
     render() {
-        const { actions, ...other } = this.props
-
         return (
             <div style={STYLES.container}>
                 <Link to="/projects">
@@ -25,7 +23,6 @@ class Projects extends Component {
 
     renderProjects() {
         let flipped = true;
-        const { actions } = this.props
 
         return projectsJSON.map((project, index) => {
             flipped = !flipped;
@@ -51,10 +48,10 @@ const STYLES = {
     container: {},
 
     projectsContainer: {
+        alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
         marginTop: '2em'
     },
 }

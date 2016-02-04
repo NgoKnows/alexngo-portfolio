@@ -30,11 +30,7 @@ class Project extends Component {
                 <h1 style={STYLES.title}>{project.title}</h1>
                 <h2 style={STYLES.subTitle}>{project.description}</h2>
 
-                <div style={STYLES.link.container}>
-                    {project.links.website ? <a href={project.links.website} style={STYLES.link.main}>website</a> : null}
-                    {project.links.github ? <a href={project.links.github} style={STYLES.link.main}>github</a> : null}
-                    {project.links.npm ? <a href={project.links.npm} style={STYLES.link.main}>npm</a> : null}
-                </div>
+                {this.renderLinks(project)}
 
                 <div style={STYLES.section}>
                     <h3 style={STYLES.header.main}>
@@ -49,44 +45,58 @@ class Project extends Component {
                     <h3 style={STYLES.header.main}>
                         <span style={STYLES.header.two(project.color)}>02</span> — The Tech Stack
                     </h3>
-                    <ul>
-                        {
-                            project.content.stack.map((tech) => {
-                                return (
-                                    <li key={tech} style={STYLES.listItem}>
-                                        {tech}
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                    {this.renderTechStack(project)}
                 </div>
 
                 <div style={STYLES.section}>
                     <h3 style={STYLES.header.main}>
                         <span style={STYLES.header.three(project.color)}>03</span> — The Execution
                     </h3>
-                    {
-                        project.content.execution.map((paragraph, index) => {
-                            return (
-                                <div>
-                                    <h4 style={STYLES.subheader}>{paragraph[0]}</h4>
-                                    {paragraph[1].split('\n').map((p, index2)=>{
-                                        return (
-                                            <div key={index + '' + index2} style={STYLES.paragraph}>
-                                                {p}
-                                            </div>
-                                        )
-
-                                    })}
-                                </div>
-                            )
-                        })
-                    }
+                    {this.renderParagraphs(project)}
                 </div>
-
             </div>
         )
+    }
+
+    renderLinks(project) {
+        return (
+            <div style={STYLES.link.container}>
+                {project.links.website ? <a href={project.links.website} style={STYLES.link.main}>website</a> : null}
+                {project.links.github ? <a href={project.links.github} style={STYLES.link.main}>github</a> : null}
+                {project.links.npm ? <a href={project.links.npm} style={STYLES.link.main}>npm</a> : null}
+            </div>
+        )
+    }
+
+    renderTechStack(project) {
+        return (
+            <ul>
+                {project.content.stack.map((tech) => {
+                    return (
+                        <li key={tech} style={STYLES.listItem}>
+                            {tech}
+                        </li>
+                    )
+                })}
+            </ul>
+        )
+    }
+
+    renderParagraphs(project) {
+        return project.content.execution.map((section, sectionIndex) => {
+            return (
+                <div>
+                    <h4 style={STYLES.subheader}>{section[0]}</h4>
+                    {section[1].split('\n').map((paragraph, paragraphIndex)=>{
+                        return (
+                            <div key={sectionIndex + '' + paragraphIndex} style={STYLES.paragraph}>
+                                {paragraph}
+                            </div>
+                        )
+                    })}
+                </div>
+            )
+        })
     }
 }
 

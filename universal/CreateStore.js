@@ -12,7 +12,7 @@ import Reducer from './redux/reducers/reducer'
 import { isClient, isDevelopment } from './utils.js'
 
 export default function composeStore(url) {
-    console.log('here')
+
     //always use thunk middleware
     let middleware = [applyMiddleware(thunk)];
 

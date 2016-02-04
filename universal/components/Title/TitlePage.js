@@ -6,9 +6,9 @@ import { bindActionCreators } from 'redux'
 
 import * as actions from 'universal/redux/actions/actions'
 
-import Title from 'components/Title/Title'
-import Projects from 'components/Title/Projects'
-import About from 'components/Title/About'
+import Title from './Title'
+import Projects from './Projects'
+import About from './About'
 
 class TitlePage extends Component {
     render() {
@@ -24,14 +24,8 @@ class TitlePage extends Component {
     }
 }
 
-TitlePage.propTypes = {}
-
-TitlePage.defaultProps = {}
-
 const STYLES = {
-    container: {
-
-    }
+    container: {}
 }
 
 function mapStateToProps(state) {

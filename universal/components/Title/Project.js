@@ -40,25 +40,31 @@ class Project extends Component {
         return (
             <div onMouseEnter={this.handleHover}
                  onMouseLeave={this.handleHover}
-                 style={[STYLES.container.main,
-                 flipped ? STYLES.container.flipped : {},
-                 hovering ? STYLES.container.hovering : {},
-                 last ? STYLES.container.last : {}]}
+                 style={[
+                    STYLES.container.main,
+                    flipped ? STYLES.container.flipped : {},
+                    hovering ? STYLES.container.hovering : {},
+                    last ? STYLES.container.last : {}
+                ]}
             >
-
                 <div style={STYLES.image.container}>
                     <img src={projectImages[name]}
                          alt={title}
-                         style={[STYLES.image.main,
-                         hovering ? STYLES.image.hovering: {}]}
+                         style={[
+                            STYLES.image.main,
+                            hovering ? STYLES.image.hovering: {}
+                        ]}
                     />
                 </div>
 
-                <div style={[STYLES.description.container,
-                flipped ? STYLES.description.flipped : {}]}
+                <div style={[
+                    STYLES.description.container,
+                    flipped ? STYLES.description.flipped : {}
+                    ]}
                 >
-                    <div style={[STYLES.tag.container,
-                    flipped ? STYLES.tag.flipped : {}]}
+                    <div style={[
+                        STYLES.tag.container,
+                        flipped ? STYLES.tag.flipped : {}]}
                     >
                         <Tag text={tag} />
                     </div>
@@ -88,14 +94,14 @@ Project.defaultProps = {
 const STYLES = {
     container: {
         main: {
-            fontSize: '1rem',
-            width: '90vw',
-            height: '12rem',
-            display: 'flex',
             cursor: 'pointer',
+            display: 'flex',
+            flexDirection: 'row',
+            fontSize: '1rem',
+            height: '12rem',
             marginBottom: '10rem',
             transition: 'letter-spacing 0.15s ease-out',
-            flexDirection: 'row',
+            width: '90vw',
             '@media (max-width: 752px)': {
                 flexDirection: 'column-reverse',
                 height: '20rem'
@@ -117,9 +123,9 @@ const STYLES = {
 
     image: {
         container: {
+            alignItems: 'flex-start',
             display:'flex',
             justifyContent:'center',
-            alignItems: 'flex-start',
             overflow:'hidden',
             width: '40%',
             '@media (max-width: 752px)': {
@@ -129,11 +135,11 @@ const STYLES = {
         },
 
         main: {
-            flexShrink:'0',
-            width:'100%',
-            minHeight: '100%',
             filter: 'grayscale(1)',
-            transition: 'filter 0.15s ease-out'
+            flexShrink:'0',
+            minHeight: '100%',
+            transition: 'filter 0.15s ease-out',
+            width:'100%'
         },
 
         hovering: {
@@ -159,8 +165,8 @@ const STYLES = {
         },
 
         flipped: {
-            borderStyle: 'solid none solid solid',
             alignItems: 'flex-end',
+            borderStyle: 'solid none solid solid',
             textAlign: 'right'
         },
 

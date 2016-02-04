@@ -23,15 +23,15 @@ Tag.defaultProps = {
 
 const STYLES = {
     container: {
-        padding: '0.3rem 0.35rem 0.2rem 0.35rem',
-        marginBottom: '0.5rem',
-        marginRight: '0.5rem',
-        borderRadius: '0px',
         backgroundColor: 'black',
+        border: '1px solid black',
+        borderRadius: '0px',
         color: 'white',
         display: 'inline-block',
         fontSize: '1rem',
-        border: '1px solid black'
+        marginBottom: '0.5rem',
+        marginRight: '0.5rem',
+        padding: '0.3rem 0.35rem 0.2rem 0.35rem'
     },
 
     text: {
