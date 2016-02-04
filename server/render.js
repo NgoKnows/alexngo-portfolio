@@ -51,7 +51,7 @@ export function renderFullPage(html, initialState) {
       <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Sample App</title>
+      <title>Alex Ngo</title>
       </head>
       <body>
         <div id="root">${html}</div>
