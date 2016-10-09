@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 
 import { Route, IndexRoute } from 'react-router'
 
-import App from './containers/App'
-import TitlePage from './components/Title/TitlePage'
-import ProjectsPage from './components/Projects/ProjectsPage'
+import App from 'containers/App'
+import TitlePage from 'components/Title/TitlePage'
+import ProjectsPage from 'components/Projects/ProjectsPage'
 import Error from 'components/ErrorPage/ErrorPage'
 
 export default (

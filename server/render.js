@@ -1,21 +1,13 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { createStore } from 'redux'
 import { StyleRoot } from 'radium'
 import { Router, match, RouterContext, createRoutes } from 'react-router';
 
 import Error from 'universal/components/ErrorPage/ErrorPage'
 import Root from 'universal/containers/Root'
-import composeStore from 'universal/CreateStore'
 import routes from 'universal/Routes'
 
 export function *handleRender() {
-    // Create a new Redux store instance
-    const store = composeStore(this.url);
-
-    // Grab the initial state from our Redux store
-    const initialState = store.getState()
-
     match({ routes: [routes], location: this.url }, (error, redirectLocation, renderProps) => {
         if (error) {
             this.body = error.message
@@ -31,10 +23,10 @@ export function *handleRender() {
                 </StyleRoot>
             );
             const html = renderToString(
-                <Root store={store} routes={Router} />
+                <Root routes={Router} />
             );
 
-            this.body = renderFullPage(html, initialState)
+            this.body = renderFullPage(html)
 
         } else {
             this.body = renderToString(
@@ -44,7 +36,7 @@ export function *handleRender() {
     })
 };
 
-export function renderFullPage(html, initialState) {
+export function renderFullPage(html) {
     return `
    <!DOCTYPE html>
     <html lang="en">
@@ -55,9 +47,6 @@ export function renderFullPage(html, initialState) {
       </head>
       <body>
         <div id="root">${html}</div>
-        <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
-        </script>
         <script src="/bundle.js"></script>
       </body>
     </html>

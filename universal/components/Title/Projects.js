@@ -27,7 +27,7 @@ class Projects extends Component {
         return projectsJSON.map((project, index) => {
             flipped = !flipped;
             return (
-                <Link to={`/projects/${project.name}`}>
+                <Link to={`/projects/${project.name}`} key={project.name}>
                     <Project title={project.title}
                              description={project.description}
                              image_url={project.image_url}

@@ -52,7 +52,7 @@ app.use(function *(next) {
 import http from 'http'
 
 const httpServer = http.Server(app.callback());
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8001;
 
 httpServer.listen(port, () => {
     console.log('App is listening on port', port);

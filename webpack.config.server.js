@@ -43,6 +43,7 @@ module.exports = {
     },
 
     output: {
+        publicPath: 'http://localhost:8001/',
         path: path.join(ROOT_DIR,'build'),
         filename: 'server.bundle.js'
     },

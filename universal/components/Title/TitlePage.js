@@ -1,11 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
 
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-
-import * as actions from 'universal/redux/actions/actions'
-
 import Title from './Title'
 import Projects from './Projects'
 import About from './About'
@@ -28,14 +23,4 @@ const STYLES = {
     container: {}
 }
 
-function mapStateToProps(state) {
-    return {};
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions : bindActionCreators(actions, dispatch)
-    };
-}
-
-export default Radium(connect(mapStateToProps, mapDispatchToProps)(TitlePage));
+export default Radium(TitlePage);
