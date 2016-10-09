@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ROOT_DIR = process.env.PWD;
 
 module.exports = {
-    target: "web",
+    target: 'web',
     context: ROOT_DIR,
     entry: [
         'webpack-hot-middleware/client',
@@ -26,7 +26,7 @@ module.exports = {
     },
 
     output: {
-        publicPath: "http://localhost:8000/",
+        publicPath: 'http://localhost:8000/',
         path: path.join(ROOT_DIR,'build'),
         filename: 'bundle.js'
     },
@@ -44,10 +44,10 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    "presets": ["es2015", "react", "stage-0"],
-                    "env": {
-                        "development": {
-                            "presets": ["react-hmre"]
+                    'presets': ['es2015', 'react', 'stage-0'],
+                    'env': {
+                        'development': {
+                            'presets': ['react-hmre']
                         }
                     }
                 }
@@ -55,7 +55,7 @@ module.exports = {
 
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: 'style-loader!css-loader'
             },
 
             {

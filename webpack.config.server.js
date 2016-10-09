@@ -16,7 +16,7 @@ fs.readdirSync('node_modules')
 
 
 module.exports = {
-    target:  "node",
+    target:  'node',
     context: ROOT_DIR,
     entry: ['babel-polyfill', './server.js'],
     resolve: {
@@ -35,10 +35,10 @@ module.exports = {
 
         },
         modulesDirectories: [
-            "client",
-            "universal",
-            "server",
-            "node_modules",
+            'client',
+            'universal',
+            'server',
+            'node_modules',
         ]
     },
 
@@ -56,12 +56,12 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    "presets": ["es2015", "react", "stage-0"],
+                    'presets': ['es2015', 'react', 'stage-0'],
                 }
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: 'style-loader!css-loader'
             },
 
             {

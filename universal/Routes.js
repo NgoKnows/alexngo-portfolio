@@ -19,5 +19,4 @@ export default (
         </Route>
         <Route path="*" component={Error} />
     </Route>
-    );
-
+);
