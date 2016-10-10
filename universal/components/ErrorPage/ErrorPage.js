@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
+import React, { Component } from 'react';
+import Radium from 'radium';
 
 class ErrorPage extends Component {
     render() {
@@ -8,7 +8,7 @@ class ErrorPage extends Component {
                 <h1>Looks like you got lost!</h1>
                 <div>Click here to go to </div>
             </div>
-        )
+        );
     }
 }
 

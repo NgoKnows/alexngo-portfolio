@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/NgoKnows/alexngo-portfolio#readme",
   "dependencies": {
+    "lodash": "^4.16.4",
+    "mobx": "^2.6.0",
+    "mobx-react": "^3.5.8",
     "radium": "^0.18.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

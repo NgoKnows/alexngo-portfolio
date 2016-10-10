@@ -1,13 +1,13 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
+import React, { Component, PropTypes } from 'react';
+import Radium from 'radium';
 
-import projectJSON from 'client/project.json'
+import projectJSON from 'client/project.json';
 
-import mcfj from 'images/mcfj.png'
-import everythingSports from 'images/everything-sports.png'
-import yelp from 'images/yelp.png'
-import calendar from 'images/calendar.png'
-import portfolio from 'images/portfolio.png'
+import mcfj from 'images/mcfj.png';
+import everythingSports from 'images/everything-sports.png';
+import yelp from 'images/yelp.png';
+import calendar from 'images/calendar.png';
+import portfolio from 'images/portfolio.png';
 
 const projectImages = {
     mcfj,
@@ -18,6 +18,10 @@ const projectImages = {
 };
 
 class Project extends Component {
+    static propTypes : {
+        projectName: PropTypes.string.isRequired
+    }
+
     render() {
         const { projectName } = this.props;
         const project = projectJSON.filter((project) => project.name === projectName)[0];
@@ -55,7 +59,7 @@ class Project extends Component {
                     {this.renderParagraphs(project)}
                 </div>
             </div>
-        )
+        );
     }
 
     renderLinks(project) {
@@ -65,7 +69,7 @@ class Project extends Component {
                 {project.links.github ? <a href={project.links.github} style={STYLES.link.main}>github</a> : null}
                 {project.links.npm ? <a href={project.links.npm} style={STYLES.link.main}>npm</a> : null}
             </div>
-        )
+        );
     }
 
     renderTechStack(project) {
@@ -76,34 +80,28 @@ class Project extends Component {
                         <li key={tech} style={STYLES.listItem}>
                             {tech}
                         </li>
-                    )
+                    );
                 })}
             </ul>
-        )
+        );
     }
 
     renderParagraphs(project) {
         return project.content.execution.map((section, sectionIndex) => {
             return (
-                <div>
+                <div key={sectionIndex}>
                     <h4 style={STYLES.subheader}>{section[0]}</h4>
-                    {section[1].split('\n').map((paragraph, paragraphIndex)=>{
+                    {section[1].split('\n').map((paragraph, paragraphIndex) => {
                         return (
-                            <div key={sectionIndex + '' + paragraphIndex} style={STYLES.paragraph}>
+                            <div key={`${sectionIndex} ${paragraphIndex}`} style={STYLES.paragraph}>
                                 {paragraph}
                             </div>
-                        )
+                        );
                     })}
                 </div>
-            )
-        })
+            );
+        });
     }
-}
-
-Project.propTypes = {
-}
-
-Project.defaultProps = {
 }
 
 const STYLES = {
@@ -154,18 +152,18 @@ const STYLES = {
             return {
                 color,
                 opacity: 0.33
-            }
+            };
         },
         two: (color) => {
             return {
                 color,
                 opacity: 0.66
-            }
+            };
         },
         three: (color) => {
             return {
                 color
-            }
+            };
         },
     },
 
@@ -204,6 +202,6 @@ const STYLES = {
             cursor: 'pointer'
         }
     }
-}
+};
 
 export default Radium(Project);

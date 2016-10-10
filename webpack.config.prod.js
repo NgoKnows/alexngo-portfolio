@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ROOT_DIR = process.env.PWD;
 
 module.exports = {
-    target: "web",
+    target: 'web',
     context: ROOT_DIR,
     entry: [
         path.resolve(ROOT_DIR, 'client', 'js', 'index.js')
@@ -25,8 +25,8 @@ module.exports = {
     },
 
     output: {
-	publicPath: '/',
-        path: path.join(ROOT_DIR,'build'),
+        publicPath: '/',
+        path: path.join(ROOT_DIR, 'build'),
         filename: 'bundle.js'
     },
 
@@ -35,7 +35,7 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                NODE_ENV: JSON.stringify('production')
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -52,13 +52,13 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    "presets": ["es2015", "react", "stage-0"],
+                    presets: ['es2015', 'react', 'stage-0']
                 }
             },
 
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: 'style-loader!css-loader'
             },
 
             {

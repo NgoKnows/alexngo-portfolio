@@ -30,7 +30,7 @@ class Project extends Component {
     handleHover() {
         this.setState({
             hovering: !this.state.hovering
-        })
+        });
     }
 
     render() {
@@ -38,9 +38,10 @@ class Project extends Component {
         const { name, flipped, title, description, tag, index, last } = this.props;
 
         return (
-            <div onMouseEnter={this.handleHover}
-                 onMouseLeave={this.handleHover}
-                 style={[
+            <div
+                onMouseEnter={this.handleHover}
+                onMouseLeave={this.handleHover}
+                style={[
                     STYLES.container.main,
                     flipped ? STYLES.container.flipped : {},
                     hovering ? STYLES.container.hovering : {},
@@ -48,23 +49,27 @@ class Project extends Component {
                 ]}
             >
                 <div style={STYLES.image.container}>
-                    <img src={projectImages[name]}
-                         alt={title}
-                         style={[
+                    <img
+                        src={projectImages[name]}
+                        alt={title}
+                        style={[
                             STYLES.image.main,
-                            hovering ? STYLES.image.hovering: {}
+                            hovering ? STYLES.image.hovering : {}
                         ]}
                     />
                 </div>
 
-                <div style={[
-                    STYLES.description.container,
-                    flipped ? STYLES.description.flipped : {}
+                <div
+                    style={[
+                        STYLES.description.container,
+                        flipped ? STYLES.description.flipped : {}
                     ]}
                 >
-                    <div style={[
-                        STYLES.tag.container,
-                        flipped ? STYLES.tag.flipped : {}]}
+                    <div
+                        style={[
+                            STYLES.tag.container,
+                            flipped ? STYLES.tag.flipped : {}
+                        ]}
                     >
                         <Tag text={tag} />
                     </div>
@@ -76,7 +81,7 @@ class Project extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -85,11 +90,11 @@ Project.propTypes = {
     description : PropTypes.string.isRequired,
     name        : PropTypes.string.isRequired,
     title       : PropTypes.string.isRequired
-}
+};
 
 Project.defaultProps = {
     flipped : false
-}
+};
 
 const STYLES = {
     container: {
@@ -195,6 +200,6 @@ const STYLES = {
     number: {
         color: '#BBBBBB'
     }
-}
+};
 
 export default Radium(Project);

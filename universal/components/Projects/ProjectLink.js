@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import Radium from 'radium'
+import Radium from 'radium';
 
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 class ProjectLink extends Component {
     render() {
@@ -20,7 +20,7 @@ class ProjectLink extends Component {
 ProjectLink.propTypes = {
     path: PropTypes.string.isRequired,
     text: PropTypes.string,
-    children: PropTypes.object
+    children: PropTypes.node
 };
 
 const STYLES = {
@@ -34,6 +34,6 @@ const STYLES = {
         justifyContent: 'center',
         marginBottom: '0.55em'
     }
-}
+};
 
 export default Radium(ProjectLink);

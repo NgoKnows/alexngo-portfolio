@@ -7,6 +7,7 @@
 /* Document level adjustments */
 html {
     font-size: 17px;
+    font-family: 'Simplifica'
 }
 @media (max-width: 900px) {
     html { font-size: 14px; }

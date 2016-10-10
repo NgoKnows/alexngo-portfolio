@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
-import { Link } from 'react-router'
+import React, { Component, PropTypes } from 'react';
+import Radium from 'radium';
+import { Link } from 'react-router';
 
-import CrossedOut from 'components/CrossedOut'
+import CrossedOut from 'components/CrossedOut';
 
-import projectJSON from 'client/project.json'
+import projectJSON from 'client/project.json';
 
 class SideNav extends Component {
     render() {
@@ -41,7 +41,7 @@ class SideNav extends Component {
         const { currentProject } = this.props;
         return projectJSON.map((project, index) => {
             return (
-                <Link to={`/projects/${project.name}`}>
+                <Link to={`/projects/${project.name}`} key={project.name}>
                     <div style={STYLES.number}
                          key={project.name}
                     >
@@ -58,7 +58,7 @@ class SideNav extends Component {
 }
 
 SideNav.propTypes = {
-    selected: PropTypes.number.isRequired
+    // selected: PropTypes.number.isRequired
 }
 
 const STYLES = {
@@ -97,6 +97,6 @@ const STYLES = {
     all: {
         letterSpacing: '1.5px'
     }
-}
+};
 
 export default Radium(SideNav);

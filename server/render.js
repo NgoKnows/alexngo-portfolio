@@ -1,22 +1,20 @@
-import React from 'react'
-import { renderToString } from 'react-dom/server'
-import { StyleRoot } from 'radium'
-import { Router, match, RouterContext, createRoutes } from 'react-router';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { StyleRoot } from 'radium';
+import { Router, match, RouterContext } from 'react-router';
 
-import Error from 'universal/components/ErrorPage/ErrorPage'
-import Root from 'universal/containers/Root'
-import routes from 'universal/Routes'
+import Error from 'universal/components/ErrorPage/ErrorPage';
+import Root from 'universal/containers/Root';
+import routes from 'universal/Routes';
 
 export function *handleRender() {
     match({ routes: [routes], location: this.url }, (error, redirectLocation, renderProps) => {
         if (error) {
-            this.body = error.message
-
+            this.body = error.message;
         } else if (redirectLocation) {
-            this.body = "Would Redirect to " + redirectLocation.pathname
-
+            this.body = `Would Redirect to ${redirectLocation.pathname}`;
         } else if (renderProps) {
-            const radiumConfig = {userAgent: this.headers['user-agent']};
+            const radiumConfig = { userAgent: this.headers['user-agent'] };
             const Router = (
                 <StyleRoot radiumConfig={radiumConfig}>
                     <RouterContext {...renderProps} />
@@ -26,15 +24,14 @@ export function *handleRender() {
                 <Root routes={Router} />
             );
 
-            this.body = renderFullPage(html)
-
+            this.body = renderFullPage(html);
         } else {
             this.body = renderToString(
                 <Error />
             );
         }
-    })
-};
+    });
+}
 
 export function renderFullPage(html) {
     return `
@@ -50,5 +47,5 @@ export function renderFullPage(html) {
         <script src="/bundle.js"></script>
       </body>
     </html>
-    `
-};
+    `;
+}
