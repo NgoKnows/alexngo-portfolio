@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
+import React, { Component, PropTypes } from 'react';
+import Radium from 'radium';
 
 class Header extends Component {
     render() {
@@ -9,19 +9,18 @@ class Header extends Component {
             <h2 onClick={handleClick} style={STYLES}>
                 {text}
             </h2>
-        )
+        );
     }
 }
 
 Header.propTypes = {
-    text : PropTypes.string,
+    text : PropTypes.string.isRequired,
     handleClick: PropTypes.func
-}
+};
 
 Header.defaultProps = {
-    text: "Header",
     handleClick: () => {}
-}
+};
 
 const STYLES = {
     cursor: 'pointer',
@@ -34,6 +33,6 @@ const STYLES = {
     ':hover': {
         letterSpacing: '10px'
     }
-}
+};
 
 export default Radium(Header);

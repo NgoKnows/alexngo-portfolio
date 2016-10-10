@@ -33,13 +33,11 @@ class ProjectList extends Component {
     }
 
     renderLinks() {
-        return projectJSON.map((project, index) => {
-            return (
-                <ProjectLink key={project.title} path={`/projects/${project.name}`}>
-                    <span style={STYLES.number}>0{index}</span> // {project.title}
-                </ProjectLink>
-            );
-        });
+        return projectJSON.map((project, index) =>
+            <ProjectLink key={project.title} path={`/projects/${project.name}`}>
+                <span style={STYLES.number}>0{index}</span> // {project.title}
+            </ProjectLink>
+        );
     }
 }
 

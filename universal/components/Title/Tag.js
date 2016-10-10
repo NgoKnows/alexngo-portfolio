@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
+import React, { Component, PropTypes } from 'react';
+import Radium from 'radium';
 
 class Tag extends Component {
     render() {
@@ -9,17 +9,13 @@ class Tag extends Component {
             <div style={STYLES.container}>
                 <div style={STYLES.text}>{text}</div>
             </div>
-        )
+        );
     }
 }
 
 Tag.propTypes = {
-    text : PropTypes.string,
-}
-
-Tag.defaultProps = {
-    text : "Tag",
-}
+    text : PropTypes.string.isRequired,
+};
 
 const STYLES = {
     container: {
@@ -35,8 +31,8 @@ const STYLES = {
     },
 
     text: {
-        'fontSize': '1.25em'
+        fontSize: '1.25em'
     }
-}
+};
 
 export default Radium(Tag);

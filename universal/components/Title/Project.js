@@ -1,13 +1,13 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
+import React, { Component, PropTypes } from 'react';
+import Radium from 'radium';
 
-import Tag from 'components/Title/Tag'
+import Tag from 'components/Title/Tag';
 
-import mcfj from 'images/mcfj.png'
-import everythingSports from 'images/everything-sports.png'
-import yelp from 'images/yelp.png'
-import calendar from 'images/calendar.png'
-import portfolio from 'images/portfolio.png'
+import mcfj from 'images/mcfj.png';
+import everythingSports from 'images/everything-sports.png';
+import yelp from 'images/yelp.png';
+import calendar from 'images/calendar.png';
+import portfolio from 'images/portfolio.png';
 
 const projectImages = {
     mcfj,

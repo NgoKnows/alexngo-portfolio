@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
+import React, { Component } from 'react';
+import Radium from 'radium';
 
-import CrossedOut from 'components/CrossedOut'
-import downArrow from 'images/down-arrow.svg'
+import CrossedOut from 'components/CrossedOut';
+import downArrow from 'images/down-arrow.svg';
 
 class Title extends Component {
     render() {
@@ -17,7 +17,7 @@ class Title extends Component {
                 </div>
                 <img style={STYLES.arrow} src={downArrow} />
             </div>
-        )
+        );
     }
 }
 

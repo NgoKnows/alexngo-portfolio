@@ -22,9 +22,11 @@ class SideNav extends Component {
                     <Link to="/projects">
                         <div style={STYLES.number}>
                             <CrossedOut>
-                                <span style={[
-                                    STYLES.all,
-                                    !currentProject ? STYLES.selected : {}]}
+                                <span
+                                    style={[
+                                        STYLES.all,
+                                        !currentProject ? STYLES.selected : {}
+                                    ]}
                                 >
                                     all
                                 </span>
@@ -34,16 +36,18 @@ class SideNav extends Component {
                     {this.renderMenuNumbers()}
                 </div>
             </div>
-        )
+        );
     }
 
     renderMenuNumbers() {
         const { currentProject } = this.props;
+
         return projectJSON.map((project, index) => {
             return (
                 <Link to={`/projects/${project.name}`} key={project.name}>
-                    <div style={STYLES.number}
-                         key={project.name}
+                    <div
+                        style={STYLES.number}
+                        key={project.name}
                     >
                         <CrossedOut>
                             <div style={currentProject === project.name ? STYLES.selected : {}}>
@@ -52,14 +56,14 @@ class SideNav extends Component {
                         </CrossedOut>
                     </div>
                 </Link>
-            )
+            );
         });
     }
 }
 
 SideNav.propTypes = {
-    // selected: PropTypes.number.isRequired
-}
+    currentProject: PropTypes.string
+};
 
 const STYLES = {
     container: {
@@ -81,7 +85,7 @@ const STYLES = {
     number: {
         cursor: 'pointer',
         padding: '0.3em 0 0.3em 0.3em',
-        //letterSpacing: '1.25px'
+        // letterSpacing: '1.25px'
     },
 
     selected: {
