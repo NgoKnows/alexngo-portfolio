@@ -4,7 +4,7 @@ import { Provider } from 'mobx-react';
 
 export default class Root extends Component {
     props: {
-        routes: 'object'
+        routes: Object
     };
 
     render() {

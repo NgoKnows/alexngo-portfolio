@@ -173,14 +173,16 @@ const STYLES = {
     },
 
     paragraph: {
-        fontSize: '1.75em',
+        fontFamily: 'Noto Mono',
+        fontSize: '1em',
         marginBottom: '0.75em',
         lineHeight: '120%',
         letterSpacing: '0.8px'
     },
 
     idea: {
-        fontSize: '1.75em'
+        fontFamily: 'Noto Mono',
+        fontSize: '1.05em'
     },
 
     section: {
@@ -188,7 +190,8 @@ const STYLES = {
         marginBottom: '1em'
     },
     listItem: {
-        fontSize: '2em',
+        fontFamily: 'Noto Mono',
+        fontSize: '1.5em',
         color: '#36454f'
     },
     link: {

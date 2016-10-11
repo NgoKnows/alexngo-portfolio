@@ -25,7 +25,7 @@ Project.defaultProps = {
 const STYLES = {
     container: {
 
-    };
+    }
 };
 
 export default Radium(Project);

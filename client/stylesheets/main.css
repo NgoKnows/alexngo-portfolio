@@ -4,6 +4,14 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Noto Mono';
+    src: url('../fonts/NotoMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Document level adjustments */
 html {
     font-size: 17px;
