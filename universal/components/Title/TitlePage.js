@@ -11,7 +11,6 @@ class TitlePage extends Component {
             <div>
                 <Title />
                 <Projects />
-                <About />
             </div>
         );
     }

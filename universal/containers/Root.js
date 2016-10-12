@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import UiStore from '../stores/UiStore';
-import { Provider } from 'mobx-react';
 
 export default class Root extends Component {
     props: {
@@ -9,9 +7,9 @@ export default class Root extends Component {
 
     render() {
         return (
-            <Provider UiStore={UiStore}>
+            <div>
                 {this.props.routes}
-            </Provider>
+            </div>
         );
     }
 }

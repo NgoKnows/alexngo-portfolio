@@ -11,7 +11,7 @@ class Title extends Component {
                 <div style={STYLES.container}>
                     <h1 style={STYLES.text}>
                         <CrossedOut>
-                            Alex Ngo // Full Stack Engineer // React Enthusiast
+                            Alex Ngo // Full Stack Engineer
                         </CrossedOut>
                     </h1>
                 </div>

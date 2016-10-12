@@ -55,7 +55,7 @@ The reason I wanted to combine the two was because React along with Redux (a Flu
         tag: 'data viz',
         color: '#4A148C',
         links: {
-            website: '159.203.240.30',
+            website: 'http://159.203.240.30/',
             github: 'https://github.com/NgoKnows/Redux-Dataflow',
             npm: '',
             writeup: 'https://docs.google.com/document/d/1eieU-NNtdLaGkisj_ECs-rdo2On0jS19trFN96yUUCg/edit?usp=sharing'

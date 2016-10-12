@@ -6,7 +6,6 @@ module.exports = {
     target: 'web',
     context: ROOT_DIR,
     entry: [
-        'webpack-hot-middleware/client',
         path.resolve(ROOT_DIR, 'client', 'js', 'index.js')
     ],
 
@@ -53,12 +52,7 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    'presets': ['es2015', 'react', 'stage-0'],
-                    'env': {
-                        'development': {
-                            'presets': ['react-hmre']
-                        }
-                    }
+                    'presets': ['es2015', 'react', 'stage-0']
                 }
             },
 
