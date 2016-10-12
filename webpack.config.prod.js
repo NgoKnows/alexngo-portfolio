@@ -6,6 +6,7 @@ module.exports = {
     target: 'web',
     context: ROOT_DIR,
     entry: [
+        'webpack-hot-middleware/client',
         path.resolve(ROOT_DIR, 'client', 'js', 'index.js')
     ],
 
@@ -21,7 +22,7 @@ module.exports = {
             images: path.join(ROOT_DIR, 'client', 'images'),
             universal: path.join(ROOT_DIR, 'universal'),
             server: path.join(ROOT_DIR, 'server')
-        }
+        },
     },
 
     output: {
@@ -52,7 +53,12 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    presets: ['es2015', 'react', 'stage-0']
+                    'presets': ['es2015', 'react', 'stage-0'],
+                    'env': {
+                        'development': {
+                            'presets': ['react-hmre']
+                        }
+                    }
                 }
             },
 

@@ -3,6 +3,9 @@ import Radium from 'radium';
 
 import Tag from 'components/Title/Tag';
 
+import curato from 'images/curato.png';
+import dataflow from 'images/dataflow.png';
+import nba from 'images/nba.png';
 import mcfj from 'images/mcfj.png';
 import everythingSports from 'images/everything-sports.png';
 import yelp from 'images/yelp.png';
@@ -14,7 +17,10 @@ const projectImages = {
     everythingSports,
     yelp,
     calendar,
-    portfolio
+    portfolio,
+    nba,
+    curato,
+    dataflow
 };
 
 class Project extends Component {

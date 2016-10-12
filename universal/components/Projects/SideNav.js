@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import CrossedOut from 'components/CrossedOut';
 
-import projectJSON from 'client/project.json';
+import projectsList from 'client/projects';
 
 class SideNav extends Component {
     render() {
@@ -41,13 +41,12 @@ class SideNav extends Component {
 
     renderMenuNumbers() {
         const { currentProject } = this.props;
-
-        return projectJSON.map((project, index) => {
+        return projectsList.map((project, index) => {
+            console.log(project);
             return (
                 <Link to={`/projects/${project.name}`} key={project.name}>
                     <div
                         style={STYLES.number}
-                        key={project.name}
                     >
                         <CrossedOut>
                             <div style={currentProject === project.name ? STYLES.selected : {}}>

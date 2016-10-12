@@ -15,6 +15,9 @@ export default (
             <Route path="yelp" />
             <Route path="calendar" />
             <Route path="portfolio" />
+            <Route path="curato" />
+            <Route path="nba" />
+            <Route path="dataflow" />
         </Route>
         <Route path="*" component={Error} />
     </Route>

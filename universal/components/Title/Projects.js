@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import Project from 'components/Title/Project'
 import Header from 'components/Header'
 
-import projectsJSON from '../../../client/project.json'
+import projectsJSON from '../../../client/projects'
 
 class Projects extends Component {
     render() {

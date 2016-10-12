@@ -1,8 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 
-import projectJSON from 'client/project.json';
+import projectsList from 'client/projects';
 
+import curato from 'images/curato.png';
+import dataflow from 'images/dataflow.png';
+import nba from 'images/nba.png';
 import mcfj from 'images/mcfj.png';
 import everythingSports from 'images/everything-sports.png';
 import yelp from 'images/yelp.png';
@@ -14,7 +17,10 @@ const projectImages = {
     everythingSports,
     yelp,
     calendar,
-    portfolio
+    portfolio,
+    nba,
+    curato,
+    dataflow
 };
 
 class Project extends Component {
@@ -24,7 +30,7 @@ class Project extends Component {
 
     render() {
         const { projectName } = this.props;
-        const project = projectJSON.filter((project) => project.name === projectName)[0];
+        const project = projectsList.filter((project) => project.name === projectName)[0];
 
         return (
             <div style={STYLES.container}>
@@ -68,6 +74,7 @@ class Project extends Component {
                 {project.links.website ? <a href={project.links.website} style={STYLES.link.main}>website</a> : null}
                 {project.links.github ? <a href={project.links.github} style={STYLES.link.main}>github</a> : null}
                 {project.links.npm ? <a href={project.links.npm} style={STYLES.link.main}>npm</a> : null}
+                {project.links.writeup ? <a href={project.links.writeup} style={STYLES.link.main}>write up</a> : null}
             </div>
         );
     }
