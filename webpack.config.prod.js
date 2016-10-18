@@ -40,6 +40,7 @@ module.exports = {
         }),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
+                screw_ie8: true,
                 warnings: false
             }
         })
@@ -52,7 +53,7 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    'presets': ['es2015', 'react', 'stage-0']
+                    'presets': ['es2015', 'react', 'stage-0', 'react-optimize']
                 }
             },
 
@@ -63,7 +64,7 @@ module.exports = {
 
             {
                 test: /\.(jpg|png|woff|woff2|eot|ttf|svg|otf|pdf)$/,
-                loader: 'url-loader?limit=10000'
+                loader: 'url-loader?limit=7000'
             },
 
             {

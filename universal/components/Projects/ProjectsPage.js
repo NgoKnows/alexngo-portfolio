@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Radium from 'radium';
+import EasyTransition from 'react-easy-transition';
 
 import SideNav from './SideNav';
 import ProjectContent from './ProjectContent';
@@ -7,16 +8,24 @@ import ProjectList from './ProjectList';
 
 class ProjectsPage extends Component {
     render() {
-        const currentProject = this.props.location.pathname.split('/')[2];
+        const { location } = this.props;
+        const currentProject = location.pathname.split('/')[2];
 
         return (
             <div style={STYLES.container}>
                 <SideNav currentProject={currentProject} />
                 <div style={STYLES.project}>
-                    {currentProject ?
-                        <ProjectContent key={currentProject} projectName={currentProject} /> :
-                        <ProjectList />
-                    }
+                    <EasyTransition
+                        path={location.pathname}
+                        initialStyle={{opacity: 0}}
+                        transition="opacity 0.3s ease-in"
+                        finalStyle={{opacity: 1}}
+                    >
+                            {currentProject ?
+                                <ProjectContent key={currentProject} projectName={currentProject} /> :
+                                <ProjectList />
+                            }
+                    </EasyTransition>
                 </div>
             </div>
         );

@@ -42,7 +42,6 @@ class SideNav extends Component {
     renderMenuNumbers() {
         const { currentProject } = this.props;
         return projectsList.map((project, index) => {
-            console.log(project);
             return (
                 <Link to={`/projects/${project.name}`} key={project.name}>
                     <div

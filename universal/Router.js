@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Router, browserHistory } from 'react-router';
+import { applyRouterMiddleware, browserHistory, Router } from 'react-router';
+import { useScroll } from 'react-router-scroll';
 
 import { StyleRoot } from 'radium';
 import Routes from './Routes';
@@ -8,7 +9,7 @@ export default class MyRouter extends Component {
     render() {
         return (
             <StyleRoot radiumConfig={{ userAgent: navigator.userAgent }}>
-                <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
+                <Router render={applyRouterMiddleware(useScroll())} history={browserHistory}>
                     {Routes}
                 </Router>
             </StyleRoot>
