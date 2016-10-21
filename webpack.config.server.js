@@ -14,6 +14,10 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
+// PostCSS plugins
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+const postcssReporter = require('postcss-reporter');
 
 module.exports = {
     target:  'node',
@@ -60,9 +64,11 @@ module.exports = {
                     'presets': ['es2015', 'react', 'stage-0'],
                 }
             },
+
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                exclude: /main.css/,
+                loader: 'isomorphic-style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
             },
 
             {
@@ -76,5 +82,16 @@ module.exports = {
             }
         ]
     },
+
+    postcss: () => [
+        postcssFocus(), // Add a :focus to every :hover
+        cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
+            browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
+        }),
+        postcssReporter({ // Posts messages from plugins to the terminal
+            clearMessages: true,
+        }),
+    ],
+
     externals: nodeModules
 };

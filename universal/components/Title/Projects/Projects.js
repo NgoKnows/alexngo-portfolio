@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react'
 import Radium from 'radium'
 import { Link } from 'react-router'
 
-import Project from 'components/Title/Project'
-import Header from 'components/Header'
+import Project from 'components/Title/Project/Project'
+import Header from 'components/Reusable/Header/Header'
 
-import projectsJSON from '../../../client/projects'
+import projectsJSON from '../../../../client/projects'
 
 class Projects extends Component {
     render() {

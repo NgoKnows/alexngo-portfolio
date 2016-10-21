@@ -1,0 +1,21 @@
+.container {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.about {
+    font-size: 2em;
+    margin: 0 3em 2em 3em;
+}
+
+.link {
+    font-size: 2em;
+    margin: 0 1em;
+    padding: 0.1em 0.2em 0.05em 0.2em;
+    text-decoration: underline;
+}
+
+.linkContainer {
+    display: flex;
+    justify-content: center;
+}

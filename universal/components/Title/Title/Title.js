@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import CrossedOut from 'components/CrossedOut';
+import CrossedOut from 'components/Reusable/CrossedOut/CrossedOut';
 import downArrow from 'images/down-arrow.svg';
 
 class Title extends Component {

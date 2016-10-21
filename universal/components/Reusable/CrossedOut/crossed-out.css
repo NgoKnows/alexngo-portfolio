@@ -1,0 +1,18 @@
+.lineWrap {
+    position:relative;
+    display:inline-block;
+}
+
+.line {
+    display:inline-block;
+    position:absolute;
+    left:0;
+    top:50%;
+    width:0;
+    border-top:2px solid black;
+    -webkit-transition: width 0.25s ease-out;
+}
+
+.lineWrap:hover .line {
+    width:100%;
+}

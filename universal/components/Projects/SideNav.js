@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 import { Link } from 'react-router';
 
-import CrossedOut from 'components/CrossedOut';
+import CrossedOut from 'components/Reusable/CrossedOut/CrossedOut';
 
 import projectsList from 'client/projects';
 

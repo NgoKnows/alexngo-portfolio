@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import Title from './Title';
-import Projects from './Projects';
-import About from './About';
+import Title from '../Title/Title';
+import Projects from '../Projects/Projects';
+import About from '../About/About';
 
 class TitlePage extends Component {
     render() {
@@ -11,6 +11,7 @@ class TitlePage extends Component {
             <div>
                 <Title />
                 <Projects />
+                <About />
             </div>
         );
     }

@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import Radium from 'radium';
+import Radium from 'radium'
+import classnames from 'classnames';
+import styles from './project.css';
 
-import Tag from 'components/Title/Tag';
+import Tag from 'components/Title/Tag/Tag';
 
 import curato from 'images/curato.png';
 import dataflow from 'images/dataflow.png';
@@ -24,35 +26,46 @@ const projectImages = {
 };
 
 class Project extends Component {
+    static propTypes = {
+        flipped: PropTypes.bool,
+        description: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        tag: PropTypes.string.isRequired,
+        index: PropTypes.number.isRequired,
+        last: PropTypes.bool.isRequired
+    };
+
+    static defaultProps = {
+        flipped: false
+    };
+
+    state = {
+        hovering: false
+    };
+
     constructor(props) {
         super(props);
-        this.state = {
-            hovering: false,
-        };
-
         this.handleHover = this.handleHover.bind(this);
     }
 
     handleHover() {
-        this.setState({
-            hovering: !this.state.hovering
-        });
+        this.setState({ hovering: !this.state.hovering });
     }
 
     render() {
         const { hovering } = this.state;
         const { name, flipped, title, description, tag, index, last } = this.props;
-
+        console.log(styles);
         return (
             <div
                 onMouseEnter={this.handleHover}
                 onMouseLeave={this.handleHover}
-                style={[
-                    STYLES.container.main,
-                    flipped ? STYLES.container.flipped : {},
-                    hovering ? STYLES.container.hovering : {},
-                    last ? STYLES.container.last : {}
-                ]}
+                className={classnames(styles.container, {
+                    [styles.flipped]: flipped,
+                    [styles.hovering]: hovering,
+                    [styles.last]: last
+                })}
             >
                 <div style={STYLES.image.container}>
                     <img
@@ -91,47 +104,7 @@ class Project extends Component {
     }
 }
 
-Project.propTypes = {
-    flipped     : PropTypes.bool,
-    description : PropTypes.string.isRequired,
-    name        : PropTypes.string.isRequired,
-    title       : PropTypes.string.isRequired
-};
-
-Project.defaultProps = {
-    flipped : false
-};
-
 const STYLES = {
-    container: {
-        main: {
-            cursor: 'pointer',
-            display: 'flex',
-            flexDirection: 'row',
-            fontSize: '1rem',
-            height: '12rem',
-            marginBottom: '10rem',
-            transition: 'letter-spacing 0.15s ease-out',
-            width: '90vw',
-            '@media (max-width: 752px)': {
-                flexDirection: 'column-reverse',
-                height: '20rem'
-            },
-        },
-
-        flipped: {
-            flexDirection: 'row-reverse'
-        },
-
-        hovering: {
-            letterSpacing: '0.075em'
-        },
-
-        last: {
-            marginBottom: '6rem'
-        }
-    },
-
     image: {
         container: {
             alignItems: 'flex-start',
@@ -208,4 +181,4 @@ const STYLES = {
     }
 };
 
-export default Radium(Project);
+export default Radium(Project)
