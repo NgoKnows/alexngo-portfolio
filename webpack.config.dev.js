@@ -22,7 +22,6 @@ module.exports = {
             components: path.join(ROOT_DIR, 'universal', 'components'),
             containers: path.join(ROOT_DIR, 'universal', 'containers'),
             client: path.join(ROOT_DIR, 'client'),
-            flux: path.join(ROOT_DIR, 'universal', 'redux'),
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             images: path.join(ROOT_DIR, 'client', 'images'),
             universal: path.join(ROOT_DIR, 'universal'),

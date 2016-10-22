@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
-import Radium from 'radium';
+import React from 'react';
 
 import Title from '../Title/Title';
 import Projects from '../Projects/Projects';
-import About from '../About/About';
+// import About from '../About/About';
 
-class TitlePage extends Component {
-    render() {
-        return (
-            <div>
-                <Title />
-                <Projects />
-                <About />
-            </div>
-        );
-    }
-}
+const TitlePage = () => (
+    <div>
+        <Title />
+        <Projects />
+    </div>
+);
 
-export default Radium(TitlePage);
+export default TitlePage;

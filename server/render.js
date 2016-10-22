@@ -1,6 +1,5 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { StyleRoot } from 'radium';
 import { Router, match, RouterContext } from 'react-router';
 
 import Error from 'universal/components/ErrorPage/ErrorPage';
@@ -14,15 +13,8 @@ export function *handleRender() {
         } else if (redirectLocation) {
             this.body = `Would Redirect to ${redirectLocation.pathname}`;
         } else if (renderProps) {
-            const radiumConfig = { userAgent: this.headers['user-agent'] };
-            const Router = (
-                <StyleRoot radiumConfig={radiumConfig}>
-                    <RouterContext {...renderProps} />
-                </StyleRoot>
-            );
-            const html = renderToString(
-                <Root routes={Router} />
-            );
+            const Router = <RouterContext {...renderProps} />;
+            const html = renderToString(<Root routes={Router} />);
 
             this.body = renderFullPage(html);
         } else {

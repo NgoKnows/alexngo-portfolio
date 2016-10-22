@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Radium from 'radium';
+import styles from './side-nav.css';
 import { Link } from 'react-router';
 
 import CrossedOut from 'components/Reusable/CrossedOut/CrossedOut';
@@ -11,21 +11,21 @@ class SideNav extends Component {
         const { currentProject } = this.props;
 
         return (
-            <div style={STYLES.container}>
+            <div className={styles.container}>
                 <Link to="/">
-                    <div style={STYLES.backArrow}>
+                    <div className={styles.backArrow}>
                         &#8592;
                     </div>
                 </Link>
 
-                <div style={STYLES.numberContainer}>
+                <div className={styles.numberContainer}>
                     <Link to="/projects">
-                        <div style={STYLES.number}>
+                        <div className={styles.number}>
                             <CrossedOut>
                                 <span
-                                    style={[
-                                        STYLES.all,
-                                        !currentProject ? STYLES.selected : {}
+                                    className={[
+                                        styles.all,
+                                        !currentProject ? styles.selected : {}
                                     ]}
                                 >
                                     all
@@ -45,10 +45,10 @@ class SideNav extends Component {
             return (
                 <Link to={`/projects/${project.name}`} key={project.name}>
                     <div
-                        style={STYLES.number}
+                        className={styles.number}
                     >
                         <CrossedOut>
-                            <div style={currentProject === project.name ? STYLES.selected : {}}>
+                            <div className={currentProject === project.name ? styles.selected : {}}>
                                 {`0${index}`}
                             </div>
                         </CrossedOut>
@@ -63,42 +63,4 @@ SideNav.propTypes = {
     currentProject: PropTypes.string
 };
 
-const STYLES = {
-    container: {
-        height: '80vh'
-    },
-
-    numberContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        fontSize: '23px',
-        height: '90%',
-        justifyContent: 'space-between',
-        minHeight: '20rem',
-        width: '3.25rem',
-        '@media (max-width: 1024px)': {
-            fontSize: '18px',
-        },
-    },
-    number: {
-        cursor: 'pointer',
-        padding: '0.3em 0 0.3em 0.3em',
-        // letterSpacing: '1.25px'
-    },
-
-    selected: {
-        textDecoration: 'line-through'
-    },
-
-    backArrow: {
-        cursor: 'pointer',
-        fontSize: '2em',
-        marginBottom: '1em'
-    },
-
-    all: {
-        letterSpacing: '1.5px'
-    }
-};
-
-export default Radium(SideNav);
+export default SideNav;

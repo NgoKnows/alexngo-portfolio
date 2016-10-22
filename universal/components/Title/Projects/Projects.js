@@ -1,24 +1,24 @@
-import React, { Component, PropTypes } from 'react'
-import Radium from 'radium'
-import { Link } from 'react-router'
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import styles from './projects.css';
 
-import Project from 'components/Title/Project/Project'
-import Header from 'components/Reusable/Header/Header'
+import Project from 'components/Title/Project/Project';
+import Header from 'components/Reusable/Header/Header';
 
-import projectsJSON from '../../../../client/projects'
+import projectsJSON from '../../../../client/projects';
 
-class Projects extends Component {
+export default class Projects extends Component {
     render() {
         return (
-            <div style={STYLES.container}>
+            <div>
                 <Link to="/projects">
                     <Header text="projects" />
                 </Link>
-                <div style={STYLES.projectsContainer}>
+                <div className={styles.container}>
                     {this.renderProjects()}
                 </div>
             </div>
-        )
+        );
     }
 
     renderProjects() {
@@ -28,32 +28,19 @@ class Projects extends Component {
             flipped = !flipped;
             return (
                 <Link to={`/projects/${project.name}`} key={project.name}>
-                    <Project title={project.title}
-                             description={project.description}
-                             image_url={project.image_url}
-                             name={project.name}
-                             tag={project.tag}
-                             flipped={flipped}
-                             index={index}
-                             key={project.title}
-                             last={index === projectsJSON.length - 1}
+                    <Project
+                        title={project.title}
+                        description={project.description}
+                        image_url={project.image_url}
+                        name={project.name}
+                        tag={project.tag}
+                        flipped={flipped}
+                        index={index}
+                        key={project.title}
+                        last={index === projectsJSON.length - 1}
                     />
                 </Link>
-            )
-        })
+            );
+        });
     }
 }
-
-const STYLES = {
-    container: {},
-
-    projectsContainer: {
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        marginTop: '2em'
-    },
-}
-
-export default Radium(Projects);

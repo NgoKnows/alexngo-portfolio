@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Radium from 'radium'
 import classnames from 'classnames';
 import styles from './project.css';
 
@@ -25,7 +24,7 @@ const projectImages = {
     dataflow
 };
 
-class Project extends Component {
+export default class Project extends Component {
     static propTypes = {
         flipped: PropTypes.bool,
         description: PropTypes.string.isRequired,
@@ -56,7 +55,7 @@ class Project extends Component {
     render() {
         const { hovering } = this.state;
         const { name, flipped, title, description, tag, index, last } = this.props;
-        console.log(styles);
+
         return (
             <div
                 onMouseEnter={this.handleHover}
@@ -67,35 +66,32 @@ class Project extends Component {
                     [styles.last]: last
                 })}
             >
-                <div style={STYLES.image.container}>
+                <div className={styles.imageContainer}>
                     <img
                         src={projectImages[name]}
                         alt={title}
-                        style={[
-                            STYLES.image.main,
-                            hovering ? STYLES.image.hovering : {}
-                        ]}
+                        className={classnames(styles.image, {
+                            [styles.imageHovering]: hovering
+                        })}
                     />
                 </div>
 
                 <div
-                    style={[
-                        STYLES.description.container,
-                        flipped ? STYLES.description.flipped : {}
-                    ]}
+                    className={classnames(styles.descriptionContainer, {
+                        [styles.descriptionFlipped]: flipped
+                    })}
                 >
                     <div
-                        style={[
-                            STYLES.tag.container,
-                            flipped ? STYLES.tag.flipped : {}
-                        ]}
+                        className={classnames(styles.tagContainer, {
+                            [styles.tagFlipped]: flipped
+                        })}
                     >
                         <Tag text={tag} />
                     </div>
-                    <div style={STYLES.title}>
-                        <span style={STYLES.number}>0{index}</span> // {title}
+                    <div className={styles.title}>
+                        <span className={styles.number}>0{index}</span> // {title}
                     </div>
-                    <div style={STYLES.description.text}>
+                    <div className={styles.descriptionText}>
                         {description}
                     </div>
                 </div>
@@ -103,82 +99,3 @@ class Project extends Component {
         );
     }
 }
-
-const STYLES = {
-    image: {
-        container: {
-            alignItems: 'flex-start',
-            display:'flex',
-            justifyContent:'center',
-            overflow:'hidden',
-            width: '40%',
-            '@media (max-width: 752px)': {
-                height: '50%',
-                width: '100%'
-            },
-        },
-
-        main: {
-            filter: 'grayscale(1)',
-            flexShrink:'0',
-            minHeight: '100%',
-            transition: 'filter 0.15s ease-out',
-            width:'100%'
-        },
-
-        hovering: {
-            filter: 'none'
-        }
-    },
-
-    description: {
-        container: {
-            boxSizing: 'border-box',
-            padding: '0.5em 1em 1em 1em',
-            width: '60%',
-            borderWidth: '2px',
-            borderStyle: 'solid solid solid none',
-            borderColor: 'black',
-            display: 'flex',
-            flexDirection: 'column',
-            '@media (max-width: 752px)': {
-                borderStyle: 'none none none none',
-                width: '100%',
-                height: '50%'
-            },
-        },
-
-        flipped: {
-            alignItems: 'flex-end',
-            borderStyle: 'solid none solid solid',
-            textAlign: 'right'
-        },
-
-        text: {
-            fontSize: '1.5em'
-        }
-    },
-
-    tag: {
-        container: {
-            display: 'flex',
-            justifyContent: 'flex-end',
-            width: '100%'
-        },
-
-        flipped: {
-            justifyContent: 'flex-start'
-        }
-    },
-
-    title: {
-        fontSize: '2.5em',
-        marginBottom: '0.2em'
-    },
-
-    number: {
-        color: '#BBBBBB'
-    }
-};
-
-export default Radium(Project)
