@@ -1,5 +1,5 @@
-import React from 'react';
-import { renderToString } from 'react-dom/server';
+import React from 'preact-compat';
+import { renderToString } from 'preact-compat/server';
 import { Router, match, RouterContext } from 'react-router';
 
 import Error from 'universal/components/ErrorPage/ErrorPage';
@@ -15,7 +15,6 @@ export function *handleRender() {
         } else if (renderProps) {
             const Router = <RouterContext {...renderProps} />;
             const html = renderToString(<Root routes={Router} />);
-
             this.body = renderFullPage(html);
         } else {
             this.body = renderToString(

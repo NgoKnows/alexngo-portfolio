@@ -26,7 +26,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', 'json', 'png', 'jpg'],
         alias : {
-            react: path.join(__dirname, 'node_modules', 'react'),
+            react: path.join(__dirname, 'node_modules', 'preact-compat'),
+            'react-dom': path.join(__dirname, 'node_modules', 'preact-compat'),
             classes: path.join(ROOT_DIR, 'client', 'js', 'classes'),
             client: path.join(ROOT_DIR, 'client'),
             components: path.join(ROOT_DIR, 'universal', 'components'),
@@ -36,7 +37,6 @@ module.exports = {
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             universal: path.join(ROOT_DIR, 'universal'),
             server: path.join(ROOT_DIR, 'server')
-
         },
         modulesDirectories: [
             'client',
@@ -48,11 +48,9 @@ module.exports = {
 
     output: {
         publicPath: '/',
-        path: path.join(ROOT_DIR,'build'),
+        path: path.join(ROOT_DIR, 'build'),
         filename: 'server.bundle.js'
     },
-
-    plugins: [],
 
     module: {
         loaders: [

@@ -23,6 +23,9 @@
   "homepage": "https://github.com/NgoKnows/alexngo-portfolio#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "preact": "^6.3.0",
+    "preact-compat": "^3.8.2",
+    "preact-render-to-string": "^3.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-easy-transition": "^0.0.5",
