@@ -45,8 +45,6 @@ export default class Project extends Component {
 
     constructor(props) {
         super(props);
-        console.log(React);
-        console.log(<div></div>);
         this.handleHover = this.handleHover.bind(this);
     }
 

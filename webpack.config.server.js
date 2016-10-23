@@ -2,17 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ROOT_DIR = __dirname;
 
-var fs = require('fs');
-
-var nodeModules = {};
-
-fs.readdirSync('node_modules')
-    .filter(function (x) {
-        return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function (mod) {
-        nodeModules[mod] = 'commonjs ' + mod;
-    });
+var nodeExternals = require('webpack-node-externals');
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
@@ -91,5 +81,7 @@ module.exports = {
         }),
     ],
 
-    externals: nodeModules
+    externals: [nodeExternals({
+         whitelist: ['preact', 'react-router']
+    })],
 };

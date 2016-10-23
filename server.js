@@ -1,13 +1,13 @@
-import Koa from 'koa'
+import Koa from 'koa';
 const app = Koa();
 
 // Webpack and Hot Module Reloading :)
 // --------------------------------------------------
-import webpackDevMiddleware from 'koa-webpack-dev-middleware'
-import webpackHotMiddleware from 'koa-webpack-hot-middleware'
+import webpackDevMiddleware from 'koa-webpack-dev-middleware';
+import webpackHotMiddleware from 'koa-webpack-hot-middleware';
 
-import webpack from 'webpack'
-import { isDevelopment } from 'universal/utils.js'
+import webpack from 'webpack';
+import { isDevelopment } from 'universal/utils.js';
 
 let config;
 if (isDevelopment) {
@@ -30,8 +30,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Server-Side Rendering
 // --------------------------------------------------
-import { handleRender } from 'server/render'
-app.use(handleRender)
+import { handleRender } from 'server/render';
+app.use(handleRender);
 
 
 // Error Handling
@@ -49,7 +49,7 @@ app.use(function *(next) {
 
 // Start Server
 // --------------------------------------------------
-import http from 'http'
+import http from 'http';
 
 const httpServer = http.Server(app.callback());
 const port = process.env.PORT || 8001;

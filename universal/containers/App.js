@@ -25,7 +25,7 @@ export default class App extends Component {
             <div style={STYLES}>
                 <EasyTransition
                     path={this.pathname}
-                    initialStyle={{ opacity: 0 }}
+                    initialStyle={{ opacity: 1 }}
                     transition="opacity 0.25s ease-in"
                     finalStyle={{ opacity: 1 }}
                 >

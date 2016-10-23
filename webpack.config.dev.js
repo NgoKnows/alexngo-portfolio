@@ -15,7 +15,7 @@ module.exports = {
         path.resolve(ROOT_DIR, 'client', 'js', 'index.js')
     ],
 
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-source-map',
 
     resolve: {
         extensions: ['', '.js', 'json', 'png', 'jpg'],
@@ -34,7 +34,7 @@ module.exports = {
 
     output: {
         publicPath: '/',
-        path: path.join(ROOT_DIR,'build'),
+        path: path.join(ROOT_DIR, 'build'),
         filename: 'bundle.js'
     },
 

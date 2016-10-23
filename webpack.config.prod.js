@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ROOT_DIR = process.env.PWD;
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
@@ -17,8 +18,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', 'json', 'png', 'jpg'],
         alias : {
-            // react: 'preact-compat',
-            // 'react-dom': 'preact-compat',
+            react: 'preact-compat',
+            'react-dom': 'preact-compat',
             components: path.join(ROOT_DIR, 'universal', 'components'),
             containers: path.join(ROOT_DIR, 'universal', 'containers'),
             client: path.join(ROOT_DIR, 'client'),
@@ -38,6 +39,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
+        new ExtractTextPlugin('styles.css'),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production')
@@ -58,14 +60,14 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    'presets': ['es2015', 'react', 'stage-0', 'react-optimize']
+                    presets: ['es2015', 'react', 'stage-0'],
                 }
             },
 
             {
                 test: /\.css$/,
                 exclude: /main.css/,
-                loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
+                loader: ExtractTextPlugin.extract('css-loader?modules&-autoprefixer&importLoaders=1!postcss-loader')
             },
 
             {
@@ -76,7 +78,7 @@ module.exports = {
 
             {
                 test: /\.(jpg|png|woff|woff2|eot|ttf|svg|otf|pdf)$/,
-                loader: 'url-loader?limit=7000'
+                loader: 'url-loader?limit=10000'
             },
 
             {

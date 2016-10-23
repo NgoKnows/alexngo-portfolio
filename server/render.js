@@ -1,5 +1,5 @@
-import React from 'preact-compat';
-import { renderToString } from 'preact-compat/server';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 import { Router, match, RouterContext } from 'react-router';
 
 import Error from 'universal/components/ErrorPage/ErrorPage';
@@ -17,9 +17,7 @@ export function *handleRender() {
             const html = renderToString(<Root routes={Router} />);
             this.body = renderFullPage(html);
         } else {
-            this.body = renderToString(
-                <Error />
-            );
+            this.body = renderToString(<Error />);
         }
     });
 }
@@ -31,6 +29,7 @@ export function renderFullPage(html) {
       <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" type="text/css" href="styles.css">
       <title>Alex Ngo</title>
       </head>
       <body>
