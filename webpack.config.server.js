@@ -2,18 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 var ROOT_DIR = __dirname;
 
-var fs = require('fs');
+var nodeExternals = require('webpack-node-externals');
 
-var nodeModules = {};
-
-fs.readdirSync('node_modules')
-    .filter(function (x) {
-        return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function (mod) {
-        nodeModules[mod] = 'commonjs ' + mod;
-    });
-
+// PostCSS plugins
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+const postcssReporter = require('postcss-reporter');
 
 module.exports = {
     target:  'node',
@@ -22,7 +16,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', 'json', 'png', 'jpg'],
         alias : {
-            react: path.join(__dirname, 'node_modules', 'react'),
+            react: path.join(__dirname, 'node_modules', 'preact-compat'),
+            'react-dom': path.join(__dirname, 'node_modules', 'preact-compat'),
             classes: path.join(ROOT_DIR, 'client', 'js', 'classes'),
             client: path.join(ROOT_DIR, 'client'),
             components: path.join(ROOT_DIR, 'universal', 'components'),
@@ -32,7 +27,6 @@ module.exports = {
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             universal: path.join(ROOT_DIR, 'universal'),
             server: path.join(ROOT_DIR, 'server')
-
         },
         modulesDirectories: [
             'client',
@@ -44,11 +38,9 @@ module.exports = {
 
     output: {
         publicPath: '/',
-        path: path.join(ROOT_DIR,'build'),
+        path: path.join(ROOT_DIR, 'build'),
         filename: 'server.bundle.js'
     },
-
-    plugins: [],
 
     module: {
         loaders: [
@@ -60,9 +52,11 @@ module.exports = {
                     'presets': ['es2015', 'react', 'stage-0'],
                 }
             },
+
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                exclude: /main.css/,
+                loader: 'isomorphic-style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
             },
 
             {
@@ -76,5 +70,18 @@ module.exports = {
             }
         ]
     },
-    externals: nodeModules
+
+    postcss: () => [
+        postcssFocus(), // Add a :focus to every :hover
+        cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
+            browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
+        }),
+        postcssReporter({ // Posts messages from plugins to the terminal
+            clearMessages: true,
+        }),
+    ],
+
+    externals: [nodeExternals({
+         whitelist: ['preact', 'react-router']
+    })],
 };

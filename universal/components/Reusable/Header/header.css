@@ -1,0 +1,13 @@
+.header {
+    cursor: pointer;
+    font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin-bottom: 1em;
+    text-decoration: underline;
+    transition: letter-spacing 0.12s ease-out;
+}
+
+.header:hover {
+    letter-spacing: 10px;
+}

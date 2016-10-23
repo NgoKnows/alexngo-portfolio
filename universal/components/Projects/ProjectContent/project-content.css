@@ -1,0 +1,102 @@
+.container {
+    overflow: hidden;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+}
+
+.title {
+    font-size: 4em;
+    margin-bottom: 0;
+}
+
+.subTitle {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.image {
+    width: 100%;
+    border: 1px solid grey;
+}
+
+.imageContainer {
+    max-height: 90vh;
+    width: 80vw;
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .imageContainer {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 512px) {
+    .imageContainer {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 300px) {
+    .imageContainer {
+        width: 75vw;
+    }
+}
+
+.header {
+    font-size: 3em;
+    margin-bottom: 0.75em;
+}
+
+.headerOne {
+    opacity: 0.33;
+}
+
+.headerTwo {
+    opacity: 0.66;
+}
+
+.headerThree {
+    opacity: 1;
+}
+
+.subheader {
+    font-size: 2.25em;
+    margin-bottom: 0.75em;
+}
+
+.paragraph {
+    font-family: 'Noto Mono';
+    font-size: 1em;
+    margin-bottom: 0.75em;
+    line-height: 120%;
+    letter-spacing: 0.8px;
+}
+
+.idea {
+    font-family: 'Noto Mono';
+    font-size: 1.05em;
+}
+
+.section {
+    padding-right: 1em;
+    margin-bottom: 1em;
+}
+
+.listItem {
+    font-family: 'Noto Mono';
+    font-size: 1.5em;
+    color: #36454f;
+}
+
+.link {
+    display: flex;
+}
+
+.linkContainer {
+    font-size: 2em;
+    margin-right: 1em;
+    text-decoration: underline;
+    cursor: pointer;
+}

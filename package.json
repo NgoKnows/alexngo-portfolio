@@ -22,17 +22,16 @@
   },
   "homepage": "https://github.com/NgoKnows/alexngo-portfolio#readme",
   "dependencies": {
-    "lodash": "^4.16.4",
-    "mobx": "^2.6.0",
-    "mobx-react": "^3.5.8",
-    "radium": "^0.18.1",
+    "classnames": "^2.2.5",
+    "koa": "next",
+    "preact": "^6.3.0",
+    "preact-compat": "^3.8.2",
+    "preact-render-to-string": "^3.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-easy-transition": "^0.0.5",
-    "react-flip-move": "^2.5.0",
     "react-router": "^2.8.1",
-    "react-router-scroll": "^0.3.2",
-    "scroll-behavior": "^0.3.0"
+    "react-router-scroll": "^0.3.2"
   },
   "devDependencies": {
     "babel": "^6.3.26",
@@ -51,14 +50,24 @@
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.2.2",
+    "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "^0.8.5",
+    "isomorphic-style-loader": "^1.0.0",
     "json-loader": "^0.5.4",
     "koa": "^1.1.2",
+    "koa-convert": "^1.2.0",
+    "koa-send": "^3.2.0",
+    "koa-static": "^2.0.0",
     "koa-webpack-dev-middleware": "^1.0.1",
     "koa-webpack-hot-middleware": "^1.0.1",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-focus": "^1.0.0",
+    "postcss-loader": "^1.0.0",
+    "postcss-reporter": "^1.4.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.9.11",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "webpack-node-externals": "^1.5.4"
   }
 }

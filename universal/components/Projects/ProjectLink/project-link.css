@@ -1,0 +1,10 @@
+.item {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.55em;
+}

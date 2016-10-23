@@ -2,6 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 var ROOT_DIR = process.env.PWD;
 
+// PostCSS plugins
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+const postcssReporter = require('postcss-reporter');
+
 module.exports = {
     target: 'web',
     context: ROOT_DIR,
@@ -10,14 +15,16 @@ module.exports = {
         path.resolve(ROOT_DIR, 'client', 'js', 'index.js')
     ],
 
+    devtool: 'cheap-module-source-map',
+
     resolve: {
         extensions: ['', '.js', 'json', 'png', 'jpg'],
         alias : {
-            react: path.join(ROOT_DIR, 'node_modules', 'react'),
+            react: 'preact-compat',
+            'react-dom': 'preact-compat',
             components: path.join(ROOT_DIR, 'universal', 'components'),
             containers: path.join(ROOT_DIR, 'universal', 'containers'),
             client: path.join(ROOT_DIR, 'client'),
-            flux: path.join(ROOT_DIR, 'universal', 'redux'),
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             images: path.join(ROOT_DIR, 'client', 'images'),
             universal: path.join(ROOT_DIR, 'universal'),
@@ -27,7 +34,7 @@ module.exports = {
 
     output: {
         publicPath: '/',
-        path: path.join(ROOT_DIR,'build'),
+        path: path.join(ROOT_DIR, 'build'),
         filename: 'bundle.js'
     },
 
@@ -44,10 +51,10 @@ module.exports = {
                 loader: 'babel',
                 exclude: path.join(ROOT_DIR, 'node_modules'),
                 query: {
-                    'presets': ['es2015', 'react', 'stage-0'],
-                    'env': {
-                        'development': {
-                            'presets': ['react-hmre']
+                    presets: ['es2015', 'react', 'stage-0'],
+                    env: {
+                        development: {
+                            presets: ['react-hmre']
                         }
                     }
                 }
@@ -55,6 +62,13 @@ module.exports = {
 
             {
                 test: /\.css$/,
+                exclude: /main.css/,
+                loader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
+            },
+
+            {
+                test: /\.css$/,
+                include: /main.css/,
                 loader: 'style-loader!css-loader'
             },
 
@@ -68,5 +82,15 @@ module.exports = {
                 loader: 'json-loader'
             }
         ]
-    }
+    },
+
+    postcss: () => [
+        postcssFocus(), // Add a :focus to every :hover
+        cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
+            browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
+        }),
+        postcssReporter({ // Posts messages from plugins to the terminal
+            clearMessages: true,
+        }),
+    ]
 };

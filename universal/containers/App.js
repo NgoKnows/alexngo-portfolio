@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import Radium from 'radium';
 import EasyTransition from 'react-easy-transition';
 
-class App extends Component {
+export default class App extends Component {
+    static PropTypes = {
+        location: PropTypes.object.isRequired,
+        children: PropTypes.node.isRequired
+    }
+
     constructor(props) {
         super(props);
         this.pathname = props.location.pathname;
@@ -21,9 +25,9 @@ class App extends Component {
             <div style={STYLES}>
                 <EasyTransition
                     path={this.pathname}
-                    initialStyle={{opacity: 0}}
+                    initialStyle={{ opacity: 0 }}
                     transition="opacity 0.25s ease-in"
-                    finalStyle={{opacity: 1}}
+                    finalStyle={{ opacity: 1 }}
                 >
                     {this.props.children}
                 </EasyTransition>
@@ -34,6 +38,4 @@ class App extends Component {
 
 const STYLES = {
     fontFamily : "'Simplifica', 'sans-serif'",
-}
-
-export default Radium(App);
+};

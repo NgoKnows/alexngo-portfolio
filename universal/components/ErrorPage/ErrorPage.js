@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
-import Radium from 'radium';
+import React from 'react';
 
-class ErrorPage extends Component {
-    render() {
-        return (
-            <div style={STYLES.container}>
-                <h1>Looks like you got lost!</h1>
-                <div>Click here to go to </div>
-            </div>
-        );
-    }
-}
+const ErrorPage =  () => (
+    <div style={STYLES}>
+        <h1>Looks like you got lost!</h1>
+        <div>Click here to go to </div>
+    </div>
+);
 
 const STYLES = {
-    container: {
-        fontFamily : "'Simplifica', 'sans-serif'",
-    }
-}
+    fontFamily : "'Simplifica', 'sans-serif'",
+};
 
-export default Radium(ErrorPage);
+export default ErrorPage;

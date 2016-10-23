@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from 'containers/App';
-import TitlePage from 'components/Title/TitlePage';
-import ProjectsPage from 'components/Projects/ProjectsPage';
+import TitlePage from 'components/Title/TitlePage/TitlePage';
+import ProjectsPage from 'components/Projects/ProjectsPage/ProjectsPage';
 import Error from 'components/ErrorPage/ErrorPage';
 
 export default (
