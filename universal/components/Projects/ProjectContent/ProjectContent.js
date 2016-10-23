@@ -25,7 +25,7 @@ const projectImages = {
 };
 
 export default class Project extends Component {
-    static propTypes : {
+    static propTypes = {
         projectName: PropTypes.string.isRequired
     }
 
@@ -83,13 +83,11 @@ export default class Project extends Component {
     renderTechStack(project) {
         return (
             <ul>
-                {project.content.stack.map((tech) => {
-                    return (
-                        <li key={tech} className={styles.listItem}>
-                            {tech}
-                        </li>
-                    );
-                })}
+                {project.content.stack.map((tech) => (
+                    <li key={tech} className={styles.listItem}>
+                        {tech}
+                    </li>
+                ))}
             </ul>
         );
     }
@@ -99,13 +97,11 @@ export default class Project extends Component {
             return (
                 <div key={sectionIndex}>
                     <h4 className={styles.subheader}>{section[0]}</h4>
-                    {section[1].split('\n').map((paragraph, paragraphIndex) => {
-                        return (
-                            <div key={`${sectionIndex} ${paragraphIndex}`} className={styles.paragraph}>
-                                {paragraph}
-                            </div>
-                        );
-                    })}
+                    {section[1].split('\n').map((paragraph, paragraphIndex) => (
+                        <div key={`${sectionIndex} ${paragraphIndex}`} className={styles.paragraph}>
+                            {paragraph}
+                        </div>
+                    ))}
                 </div>
             );
         });

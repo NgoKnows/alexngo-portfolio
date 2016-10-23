@@ -23,6 +23,7 @@
   "homepage": "https://github.com/NgoKnows/alexngo-portfolio#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "koa": "next",
     "preact": "^6.3.0",
     "preact-compat": "^3.8.2",
     "preact-render-to-string": "^3.2.1",
@@ -54,6 +55,9 @@
     "isomorphic-style-loader": "^1.0.0",
     "json-loader": "^0.5.4",
     "koa": "^1.1.2",
+    "koa-convert": "^1.2.0",
+    "koa-send": "^3.2.0",
+    "koa-static": "^2.0.0",
     "koa-webpack-dev-middleware": "^1.0.1",
     "koa-webpack-hot-middleware": "^1.0.1",
     "postcss-cssnext": "^2.8.0",

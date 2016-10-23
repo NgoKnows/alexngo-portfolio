@@ -1,5 +1,6 @@
 import Koa from 'koa';
-const app = Koa();
+import convert from 'koa-convert';
+const app = new Koa();
 
 // Webpack and Hot Module Reloading :)
 // --------------------------------------------------
@@ -27,25 +28,18 @@ if (process.env.NODE_ENV !== 'production') {
     app.use(webpackHotMiddleware(compiler));
 }
 
-
-// Server-Side Rendering
+// Serve Static Files
 // --------------------------------------------------
-import { handleRender } from 'server/render';
-app.use(handleRender);
+import path from 'path';
+import serve from 'koa-static';
+import send from 'koa-send';
 
+app.use(convert(serve(path.resolve('client'))));
 
-// Error Handling
-// --------------------------------------------------
-app.use(function *(next) {
-    try {
-        yield next;
-    } catch (err) {
-        this.status = err.status || 500;
-        this.body = err.message;
-        this.app.emit('error', err, this);
-    }
+// catches any request that isn't handled by koa-static or koa-router
+app.use(async (ctx) => {
+    await send(ctx, 'client/index.html');
 });
-
 
 // Start Server
 // --------------------------------------------------

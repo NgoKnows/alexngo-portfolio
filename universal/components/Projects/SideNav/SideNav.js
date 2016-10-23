@@ -41,21 +41,19 @@ class SideNav extends Component {
 
     renderMenuNumbers() {
         const { currentProject } = this.props;
-        return projectsList.map((project, index) => {
-            return (
-                <Link to={`/projects/${project.name}`} key={project.name}>
-                    <div
-                        className={styles.number}
-                    >
-                        <CrossedOut>
-                            <div className={currentProject === project.name ? styles.selected : {}}>
-                                {`0${index}`}
-                            </div>
-                        </CrossedOut>
-                    </div>
-                </Link>
-            );
-        });
+        return projectsList.map((project, index) => (
+            <Link to={`/projects/${project.name}`} key={project.name}>
+                <div
+                    className={styles.number}
+                >
+                    <CrossedOut>
+                        <div className={currentProject === project.name ? styles.selected : {}}>
+                            {`0${index}`}
+                        </div>
+                    </CrossedOut>
+                </div>
+            </Link>
+        ));
     }
 }
 

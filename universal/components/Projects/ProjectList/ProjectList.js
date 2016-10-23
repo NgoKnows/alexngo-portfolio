@@ -19,15 +19,15 @@ class ProjectList extends Component {
                     <div className={styles.headerContainer}>
                         <h2 className={styles.header}>Concepts I've Covered</h2>
                     </div>
-                    <ProjectLink text="Data Visualization w/ React" path="/projects/nba" />
-                    <ProjectLink text="Server-side rendering w/ React" path="/projects/portfolio" />
-                    <ProjectLink text="Writing a server in Node and Koa" path="/projects/mcfj" />
-                    <ProjectLink text="Implementing Realtime w/ RethinkDB" path="/projects/mcfj" />
-                    <ProjectLink text="Developer Experience" path="/projects/mcfj" />
-                    <ProjectLink text="Writing an App with React and Redux" path="/projects/mcfj" />
-                    <ProjectLink text="Data Scraping" path="/projects/everythingSports" />
-                    <ProjectLink text="Uploading a React Component to NPM" path="/projects/calendar" />
-                    <ProjectLink text="Data Science" path="/projects/yelp" />
+                    <ProjectLink path="/projects/nba">Data Visualization w/ React</ProjectLink>
+                    <ProjectLink path="/projects/portfolio">Server-side rendering w/ React</ProjectLink>
+                    <ProjectLink path="/projects/mcfj">Writing a server in Node and Koa</ProjectLink>
+                    <ProjectLink path="/projects/mcfj">Implementing Realtime w/ RethinkDB</ProjectLink>
+                    <ProjectLink path="/projects/mcfj">Developer Experience</ProjectLink>
+                    <ProjectLink path="/projects/mcfj">Writing an App with React and Redux</ProjectLink>
+                    <ProjectLink path="/projects/everythingSports">Data Scraping</ProjectLink>
+                    <ProjectLink path="/projects/calendar">Uploading a React Component to NPM</ProjectLink>
+                    <ProjectLink path="/projects/yelp">Data Science</ProjectLink>
                 </div>
             </div>
         );

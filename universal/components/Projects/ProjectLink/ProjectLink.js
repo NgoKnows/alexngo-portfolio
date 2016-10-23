@@ -7,7 +7,7 @@ const ProjectLink = (props) => (
     <Link to={props.path}>
         <div className={styles.container}>
             <div className={styles.item}>
-                {props.children || props.text}
+                {props.children}
             </div>
         </div>
     </Link>
@@ -15,8 +15,7 @@ const ProjectLink = (props) => (
 
 ProjectLink.propTypes = {
     path: PropTypes.string.isRequired,
-    text: PropTypes.string,
-    children: PropTypes.node
+    children: PropTypes.string.isRequired
 };
 
 export default ProjectLink;
