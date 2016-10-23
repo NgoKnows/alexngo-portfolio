@@ -13,7 +13,7 @@ const Title = () => (
                 </CrossedOut>
             </h1>
         </div>
-        <img className={styles.arrow} src={downArrow} />
+        <img className={styles.arrow} src={downArrow} style={{ height: '3.5rem' }}/>
     </div>
 );
 

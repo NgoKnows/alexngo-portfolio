@@ -5,4 +5,4 @@ import Router from 'universal/Router';
 
 import 'stylesheets/main.css';
 
-ReactDOM.render(<Root routes={<Router />} />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById('root'));

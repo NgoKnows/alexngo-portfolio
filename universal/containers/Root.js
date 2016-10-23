@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Match } from 'react-router'
+
+import App from 'containers/App';
 
 export default class Root extends Component {
-    props: {
-        routes: Object
-    };
-
     render() {
         return (
-            <div>
-                {this.props.routes}
-            </div>
+            <BrowserRouter>
+                <Match pattern="/" component={App} />
+            </BrowserRouter>
         );
     }
 }

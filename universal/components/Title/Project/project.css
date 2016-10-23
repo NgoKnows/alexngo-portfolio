@@ -16,7 +16,7 @@ div.container {
     }
 }
 
-.flipped {
+div.flipped {
     flex-direction: row-reverse;
 }
 
@@ -76,7 +76,7 @@ div.descriptionContainer {
     }
 }
 
-.descriptionFlipped {
+div.descriptionFlipped {
     align-items: flex-end;
     border-style: solid none solid solid;
     text-align: right;
