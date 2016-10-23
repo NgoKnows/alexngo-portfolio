@@ -4,8 +4,8 @@ import { BrowserRouter, Match, Miss, Link } from 'react-router'
 
 import TitlePage from 'components/Title/TitlePage/TitlePage';
 import ProjectsPage from 'components/Projects/ProjectsPage/ProjectsPage';
-import Canvas from 'components/Canvas';
-import Particles from 'components/Particles';
+import Canvas from 'components/Splash/Particles/Canvas';
+import Particles from 'components/Splash/Particles/Particles';
 
 export default class App extends Component {
     static propTypes = {
@@ -18,25 +18,15 @@ export default class App extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('cwrp');
+        // when to fade
         if (!nextProps.location.pathname.includes('projects') || !this.props.location.pathname.includes('projects')) {
-            console.log('here');
-            this.pathname = nextProps.location.pathname;
+            this.pathname = nextProps.location.pathname === this.pathname ? 'blah' : nextProps.location.pathname;
         }
     }
 
     render() {
         return (
             <div style={STYLES}>
-                {/* <EasyTransition
-                    path={this.pathname}
-                    initialStyle={{ opacity: 0 }}
-                    transition="opacity 0.25s ease-in"
-                    finalStyle={{ opacity: 1 }}
-                > */}
-                    <Canvas height={1500} width={2000} style={{ height: '1500px', width: '2000px', position: 'absolute', top: 0 }}>
-                        <Particles />
-                    </Canvas>
                     <BrowserRouter>
                         <div>
                             <Match exactly pattern="/" component={TitlePage} />
@@ -51,7 +41,6 @@ export default class App extends Component {
                             <Match pattern="projects/dataflow" />
                         </div>
                     </BrowserRouter>
-                {/* </EasyTransition> */}
             </div>
         );
     }

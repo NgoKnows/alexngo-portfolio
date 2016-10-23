@@ -31,7 +31,7 @@ export default class Project extends Component {
 
     render() {
         const { projectName } = this.props;
-        const project = projectsList.filter((project) => project.name === projectName)[0];
+        const project = projectsList.find((project) => project.name === projectName);
 
         return (
             <div className={styles.container}>

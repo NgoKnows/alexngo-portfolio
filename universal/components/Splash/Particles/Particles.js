@@ -1,11 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
 // Returns a random number between min (inclusive) and max (exclusive)
-function getRandom(min, max) {
-  return Math.random() * (max - min) + min;
-}
+const getRandom = (min, max) => Math.random() * (max - min) + min;
 
-export default class Project extends Component {
+export default class Particles extends Component {
     static propTypes = {
         drawingCtx: PropTypes.object.isRequired
     };
