@@ -34,6 +34,7 @@ export default class Projects extends Component {
                         image_url={project.image_url}
                         name={project.name}
                         tag={project.tag}
+                        color={project.color}
                         flipped={flipped}
                         index={index}
                         key={project.title}

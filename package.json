@@ -30,8 +30,10 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-easy-transition": "^0.0.5",
+    "react-motion": "^0.4.5",
     "react-router": "4.0.0-alpha.5",
-    "react-router-scroll": "^0.3.2"
+    "react-router-scroll": "^0.3.2",
+    "smoothscroll-polyfill": "^0.3.4"
   },
   "devDependencies": {
     "babel": "^6.3.26",

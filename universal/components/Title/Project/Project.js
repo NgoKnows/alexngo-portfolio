@@ -54,7 +54,7 @@ export default class Project extends Component {
 
     render() {
         const { hovering } = this.state;
-        const { name, flipped, title, description, tag, index, last } = this.props;
+        const { name, flipped, title, description, tag, index, last, color } = this.props;
 
         return (
             <div
@@ -89,7 +89,7 @@ export default class Project extends Component {
                         <Tag text={tag} />
                     </div>
                     <div className={styles.title}>
-                        <span className={styles.number}>0{index}</span> // {title}
+                        <span className={styles.number}>0<span style={{}}>{index}</span></span> // {title}
                     </div>
                     <div className={styles.descriptionText}>
                         {description}

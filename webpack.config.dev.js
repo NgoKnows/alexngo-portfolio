@@ -20,8 +20,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', 'json', 'png', 'jpg'],
         alias : {
-            react: 'preact-compat',
-            'react-dom': 'preact-compat',
+            // react: 'preact-compat',
+            // 'react-dom': 'preact-compat',
             components: path.join(ROOT_DIR, 'universal', 'components'),
             containers: path.join(ROOT_DIR, 'universal', 'containers'),
             client: path.join(ROOT_DIR, 'client'),
