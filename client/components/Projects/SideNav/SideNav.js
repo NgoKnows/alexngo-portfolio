@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './side-nav.css';
 import { Link } from 'react-router';
+import classnames from 'classnames';
 
 import CrossedOut from 'components/Reusable/CrossedOut/CrossedOut';
 
@@ -8,7 +9,7 @@ import projectsList from 'client/projects';
 
 class SideNav extends Component {
     render() {
-        const { currentProject } = this.props;
+        const { selectedProjectName } = this.props;
 
         return (
             <div className={styles.container}>
@@ -22,12 +23,7 @@ class SideNav extends Component {
                     <Link to="/projects">
                         <div className={styles.number}>
                             <CrossedOut>
-                                <span
-                                    className={[
-                                        styles.all,
-                                        !currentProject ? styles.selected : {}
-                                    ]}
-                                >
+                                <span className={classnames(styles.all, { [styles.selected]: !selectedProjectName })}>
                                     all
                                 </span>
                             </CrossedOut>
@@ -40,14 +36,15 @@ class SideNav extends Component {
     }
 
     renderMenuNumbers() {
-        const { currentProject } = this.props;
+        const { selectedProjectName } = this.props;
+
         return projectsList.map((project, index) => (
             <Link to={`/projects/${project.name}`} key={project.name}>
                 <div
                     className={styles.number}
                 >
                     <CrossedOut>
-                        <div className={currentProject === project.name ? styles.selected : {}}>
+                        <div className={selectedProjectName === project.name ? styles.selected : {}}>
                             {`0${index}`}
                         </div>
                     </CrossedOut>
@@ -58,7 +55,7 @@ class SideNav extends Component {
 }
 
 SideNav.propTypes = {
-    currentProject: PropTypes.string
+    selectedProjectName: PropTypes.string
 };
 
 export default SideNav;

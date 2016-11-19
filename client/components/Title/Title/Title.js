@@ -136,7 +136,6 @@ class Title extends Component {
     }
 }
 
-
 const Square = ({ style, children }) => (
     <div style={{ ...style, ...SQUARE_STYLES }}>
         <span>

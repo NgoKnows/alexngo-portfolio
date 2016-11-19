@@ -18,15 +18,8 @@ module.exports = {
         alias : {
             react: path.join(__dirname, 'node_modules', 'preact-compat'),
             'react-dom': path.join(__dirname, 'node_modules', 'preact-compat'),
-            classes: path.join(ROOT_DIR, 'client', 'js', 'classes'),
             client: path.join(ROOT_DIR, 'client'),
-            components: path.join(ROOT_DIR, 'universal', 'components'),
-            containers: path.join(ROOT_DIR, 'universal', 'containers'),
-            flux: path.join(ROOT_DIR, 'universal', 'redux'),
-            js: path.join(ROOT_DIR, 'client', 'js'),
-            stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             universal: path.join(ROOT_DIR, 'universal'),
-            server: path.join(ROOT_DIR, 'server')
         },
         modulesDirectories: [
             'client',
@@ -82,6 +75,6 @@ module.exports = {
     ],
 
     externals: [nodeExternals({
-         whitelist: ['preact', 'react-router']
+        whitelist: ['preact', 'react-router']
     })],
 };

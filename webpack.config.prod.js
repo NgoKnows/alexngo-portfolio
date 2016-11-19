@@ -20,8 +20,8 @@ module.exports = {
         alias : {
             react: 'preact-compat',
             'react-dom': 'preact-compat',
-            components: path.join(ROOT_DIR, 'universal', 'components'),
-            containers: path.join(ROOT_DIR, 'universal', 'containers'),
+            components: path.join(ROOT_DIR, 'client', 'components'),
+            containers: path.join(ROOT_DIR, 'client', 'containers'),
             client: path.join(ROOT_DIR, 'client'),
             stylesheets: path.join(ROOT_DIR, 'client', 'stylesheets'),
             images: path.join(ROOT_DIR, 'client', 'images'),

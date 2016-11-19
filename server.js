@@ -8,10 +8,9 @@ import webpackDevMiddleware from 'koa-webpack-dev-middleware';
 import webpackHotMiddleware from 'koa-webpack-hot-middleware';
 
 import webpack from 'webpack';
-import { isDevelopment } from 'universal/utils.js';
 
 let config;
-if (isDevelopment) {
+if (process.env.NODE_ENV !== 'production') {
     config = require('./webpack.config.dev');
 } else {
     config = require('./webpack.config.prod');
